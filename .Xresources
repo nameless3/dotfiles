@@ -1,0 +1,42 @@
+Xft.dpi: 96
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+
+URxvt.font: xft:xos4 Terminus:size=7,xft:Symbola
+URxvt.scrollBar: false
+URxvt.urgentOnBell: true
+URxvt.geometry: 93x35
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.colorIT: #87af5f
+URxvt.colorBD: #d7d7d7
+URxvt.colorUL: #87afd7
+
+*background: #002B36
+*foreground: #839496
+
+! Black + DarkGrey
+*color0:  #000000
+*color8:  #555753! DarkRed + Red
+*color1:  #cc241d
+*color9:  #ef2929
+!DarkGreen + Green
+*color2:  #4e9a06
+*color10: #8ae234
+! DarkYellow + Yellow
+*color3:  #c4a000
+*color11: #fce94f
+! DarkBlue + Blue
+*color4:  #3465a4
+*color12: #729fcf
+! DarkMagenta + Magenta
+*color5:  #75507b
+*color13: #ad7Fa8
+!DarkCyan + Cyan (both not tango)
+*color6:  #06989a
+*color14: #34e2E2
+! LightGrey + White
+*color7:  #d3d7cf
+*color15: #eeeeee
