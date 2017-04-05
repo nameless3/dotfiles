@@ -129,12 +129,15 @@ bindsym Print exec screenshot
 for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="pcsxr"] floating enable
+for_window [class="Snes9x-gtk"] floating enable
+for_window [class="Desmume"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [id="gnome-calculator"] floating enable
 
 assign [class="Firefox"] $ws1
 
@@ -142,7 +145,4 @@ exec --no-startup-id compton
 exec --no-startup-id nm-applet
 
 #border normal 0
-new_window normal 0
-
-for_window [class="chromium"] border none
-for_window [id="gnome-calculator"] floating enable; border pixel
+new_window none
