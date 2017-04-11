@@ -24,6 +24,7 @@ alias ip='ip -c'
 PS1="\[\e[34;44m\][\[\e[m\]\[\e[37;44m\]\u\[\e[m\]\[\e[44m\] \[\e[m\]\[\e[45m\] \[\e[m\]\[\e[37;45m\]\h\[\e[m\]\[\e[45m\] \[\e[m\]\[\e[43m\] \[\e[m\]\[\e[30;43m\]\w\[\e[m\]\[\e[33;43m\]]\[\e[m\]\[\e[33m\]\\$\[\e[m\] "
 
 HISTCONTROL=ignoreboth
-export SUDO_EDITOR=nano
+
+#export SUDO_EDITOR=nano
 #export RANGER_LOAD_DEFAULT_RC=false
 export QT_QPA_PLATFORMTHEME=qt5ct
