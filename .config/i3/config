@@ -143,6 +143,7 @@ assign [class="Firefox"] $ws1
 
 exec --no-startup-id compton
 exec --no-startup-id nm-applet
+exec xset s off -dpms
 
 #border normal 0
 new_window none
