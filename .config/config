@@ -1,0 +1,14 @@
+auto-reload yes
+suppress-first-reload yes
+browser firefox
+confirm-exit yes
+download-retries 3
+datetime-format "%d %b, %H:%M"
+mark-as-read-on-hover yes
+max-items 100
+reload-time 240
+reload-threads 5
+notify-beep yes
+
+highlight	article		"^(Feed|Title|Author|Link|Date|Links):"	yellow red bold
+color		article						        magenta default bold
