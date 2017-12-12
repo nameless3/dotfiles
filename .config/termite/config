@@ -1,0 +1,27 @@
+[options]
+	font = xos4 Terminus 8
+	audible_bell = true
+	allow_bold = true
+	geometry = 560x400
+	scrollback_lines = 10000
+
+[colors]
+	background = #002B36
+	foreground = #839496
+	foreground_bold = #839496
+	color0 = #000000
+	color8 = #555753
+	color1 = #cc241d
+	color9 = #ef2929
+	color2 = #4e9a06
+	color10 = #8ae234
+	color3 = #c4a000
+	color11 = #fce94f
+	color4 = #3465a4
+	color12 = #729fcf
+	color5 = #75507b
+	color13 = #ad7Fa8
+	color6 = #06989a
+	color14 = #34e2E2
+	color7 = #d3d7cf
+	color15 = #eeeeee
