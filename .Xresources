@@ -19,7 +19,8 @@ URxvt.colorUL: #87afd7
 
 ! Black + DarkGrey
 *color0:  #000000
-*color8:  #555753! DarkRed + Red
+*color8:  #555753
+! DarkRed + Red
 *color1:  #cc241d
 *color9:  #ef2929
 !DarkGreen + Green
