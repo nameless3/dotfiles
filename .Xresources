@@ -23,7 +23,7 @@ URxvt.colorUL: #87afd7
 ! DarkRed + Red
 *color1:  #cc241d
 *color9:  #ef2929
-!DarkGreen + Green
+! DarkGreen + Green
 *color2:  #4e9a06
 *color10: #8ae234
 ! DarkYellow + Yellow
@@ -35,7 +35,7 @@ URxvt.colorUL: #87afd7
 ! DarkMagenta + Magenta
 *color5:  #75507b
 *color13: #ad7Fa8
-!DarkCyan + Cyan (both not tango)
+! DarkCyan + Cyan (both not tango)
 *color6:  #06989a
 *color14: #34e2E2
 ! LightGrey + White
