@@ -56,7 +56,7 @@ session=${1:-cinnamon}
 case $session in
     cinnamon        ) exec cinnamon-session;;
     cinnamon2d      ) exec cinnamon-session-cinnamon2d;;
-    i3|i3wm			) exec i3;;
+    i3|i3wm         ) exec i3;;
     gnome           ) exec gnome-session;;
     gnome-classic   ) exec gnome-session --session=gnome-classic;;
     kde             ) exec startkde;;
