@@ -11,4 +11,4 @@ reload-threads 5
 notify-beep yes
 
 highlight	article		"^(Feed|Title|Author|Link|Date|Links):"	yellow red bold
-color		article							                                magenta default bold
+color     article                                           magenta default bold
