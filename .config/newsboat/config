@@ -21,8 +21,8 @@ highlight	article		"^(Feed|Title|Author|Link|Date|Links):"	white color5
 #color	<element>				<fgcolor>	<bgcolor>	[<attr> ...]
 color	article					color13		default		
 color	listnormal 				default 	default
-color	listfocus 				black 		color5
-color	listnormal_unread 		white	 	default
-color	listfocus_unread 		color7 		color5
+color	listfocus 				white 		color5
+color	listnormal_unread 		        white	 	default
+color	listfocus_unread 		        color7 		color5
 color	background 				default 	default
 color	info 					default		color0
