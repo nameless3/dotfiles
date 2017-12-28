@@ -21,4 +21,3 @@ set secure
 set noswapfile
 
 set relativenumber
-set visualbell
