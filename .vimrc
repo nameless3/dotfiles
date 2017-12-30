@@ -21,3 +21,5 @@ set secure
 set noswapfile
 
 set relativenumber
+
+let g:airline_theme='ravenpower'
