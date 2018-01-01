@@ -17,7 +17,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Pause exec i3lock --image=~/Pictures/Bakgrunder/arch1.png
+bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/arch1.png
 
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
