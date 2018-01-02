@@ -5,8 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source /usr/share/fzf/completion.bash
-source ~/.bash_aliases
+. /usr/share/fzf/completion.bash
+. ~/.aliases
 
 #PS1='[\u@\h \W]\$ ' # default
 PS1='\[\e[1;32m\]\u@\h \w>\[\e[0m\] '
