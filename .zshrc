@@ -1,6 +1,6 @@
-source ~/.config/zsh/zsh-autosuggestions.zsh
-source /usr/share/fzf/completion.zsh
-source ~/.bash_aliases
+. ~/.config/zsh/zsh-autosuggestions.zsh
+. /usr/share/fzf/completion.zsh
+. ~/.aliases
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.bash_history
 HISTSIZE=1000
