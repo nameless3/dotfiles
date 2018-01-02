@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:Ubuntu bold 9
+font pango:Inter UI bold 10
 
 floating_modifier $mod
 
@@ -30,6 +30,8 @@ bindsym $mod+v split v
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
+workspace_auto_back_and_forth yes
+
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+s layout stacking
@@ -45,18 +47,16 @@ bindsym $mod+Shift+a focus child
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-workspace_auto_back_and_forth yes
-
-set $ws1 "一"
-set $ws2 "二"
-set $ws3 "三"
-set $ws4 "四"
-set $ws5 "五"
-set $ws6 "六"
-set $ws7 "七"
-set $ws8 "八"
-set $ws9 "九"
-set $ws10 "十"
+set $ws1 "1:一"
+set $ws2 "2:二"
+set $ws3 "3:三"
+set $ws4 "4:四"
+set $ws5 "5:五"
+set $ws6 "6:六"
+set $ws7 "7:七"
+set $ws8 "8:)八"
+set $ws9 "9:九"
+set $ws10 "10:十"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -84,7 +84,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-mode "resize" {
+set $mode_resize resize
+bindsym $mod+r mode "$mode_resize"
+
+mode "$mode_resize" {
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
@@ -95,7 +98,51 @@ mode "resize" {
         bindsym 1 mode "default", resize set 1200 1060
 }
 
-bindsym $mod+r mode "resize"
+# gaps
+set $default_gaps_inner 8
+set $default_gaps_outer 3
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+set $mode_gaps gaps: (o)uter, (i)nner
+set $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
+set $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
+
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 2
+        bindsym minus gaps inner current minus 2
+        bindsym 0     gaps inner current set 0
+        bindsym d mode "default", gaps inner current set $default_gaps_inner
+
+        bindsym Shift+plus  gaps inner all plus 2
+        bindsym Shift+minus gaps inner all minus 2
+        bindsym Shift+0     gaps inner all set 0
+        bindsym Shift+d mode "default", gaps inner all set $default_gaps_inner
+
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 2
+        bindsym minus gaps outer current minus 2
+        bindsym 0     gaps outer current set 0
+        bindsym d mode "default", gaps outer current set $default_gaps_outer
+
+        bindsym Shift+plus  gaps outer all plus 2
+        bindsym Shift+minus gaps outer all minus 2
+        bindsym Shift+0     gaps outer all set 0
+        bindsym Shift+d mode "default", gaps outer all set $default_gaps_outer
+
+        bindsym Escape mode "default"
+}
 
 set $bg-color 	         #13191C
 set $inactive-bg-color   #13191C
@@ -114,7 +161,7 @@ bar {
 	status_command i3status
 	position top
 	strip_workspace_numbers yes
-		colors {
+	colors {
 		background $bg-color
 		separator #757575
 		#                  border             background         text
@@ -143,6 +190,7 @@ for_window [class="pcsxr"] floating enable
 for_window [class="Snes9x-gtk"] floating enable
 for_window [class="Desmume"] floating enable
 for_window [class="gnome-calculator"] floating enable
+for_window [class="keepass"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -150,7 +198,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-assign [class="Firefox"] $ws1
+#assign [class="Firefox"] $ws1
 assign [class="Chromium"] $ws4
 
 exec --no-startup-id compton
@@ -158,7 +206,3 @@ exec --no-startup-id nm-applet &
 #exec xset s off -dpms
 
 new_window none
-
-# gaps
-gaps inner 10
-gaps outer 3
