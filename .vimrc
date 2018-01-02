@@ -1,4 +1,4 @@
-source $VIMRUNTIME/defaults.vim
+. $VIMRUNTIME/defaults.vim
 
 set number
 set laststatus=2
