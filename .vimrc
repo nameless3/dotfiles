@@ -1,6 +1,9 @@
 . $VIMRUNTIME/defaults.vim
 
+set autoindent
+
 set number
+set relativenumber
 set laststatus=2
 set cursorline
 
@@ -19,7 +22,5 @@ set secure
 
 " disable swap files
 set noswapfile
-
-set relativenumber
 
 let g:airline_theme='ravenpower'
