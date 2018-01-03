@@ -191,6 +191,7 @@ for_window [class="Snes9x-gtk"] floating enable
 for_window [class="Desmume"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="keepass"] floating enable
+for_window [class="retroarch"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="bubble"] floating enable
