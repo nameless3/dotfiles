@@ -15,6 +15,9 @@ set cursorline
 set ruler
 set wrap
 set viminfo=
+set autoindent
+set smartindent
+set linebreak
 
 set ignorecase
 set smartcase
