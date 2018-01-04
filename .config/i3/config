@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:Inter UI bold 10
+font pango:xos4 Terminus 8
 
 floating_modifier $mod
 
@@ -47,16 +47,16 @@ bindsym $mod+Shift+a focus child
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-set $ws1 "1:一"
-set $ws2 "2:二"
-set $ws3 "3:三"
-set $ws4 "4:四"
-set $ws5 "5:五"
-set $ws6 "6:六"
-set $ws7 "7:七"
-set $ws8 "8:)八"
-set $ws9 "9:九"
-set $ws10 "10:十"
+set $ws1 "1:I"
+set $ws2 "2:II"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII"
+set $ws9 "9:IX"
+set $ws10 "10:X"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
