@@ -15,6 +15,7 @@ set cursorline
 set ruler
 set wrap
 set viminfo=
+
 set autoindent
 set smartindent
 set tabstop=4
@@ -34,6 +35,7 @@ set backspace=indent,eol,start
 set history=200
 set showcmd
 set wildmenu
+set splitright
 
 set ttimeout        " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for special key
