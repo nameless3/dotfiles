@@ -7,42 +7,67 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 2
+    colors = true
+    interval = 2
 }
 
 order += "disk /"
 order += "disk /home"
 order += "cpu_usage"
 order += "cpu_temperature 0"
+order += "cpu_temperature 1"
+order += "cpu_temperature 2"
+order += "cpu_temperature 3"
 order += "volume master"
 order += "tztime local"
 
 tztime local {
-        format = "%a, %e %b   %R"
+    format = "%a, %e %b   %R"
 }
 
 cpu_usage {
-        format = " %usage"
-	degraded_threshold = "30"
+    format = " %usage"
+    degraded_threshold = "30"
 }
 
 cpu_temperature 0 {
-	format = "%degrees°"
-	max_threshold = "75"
+    format = "%degrees°"
+    max_threshold = "75"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
+#   path = "/sys/class/hwmon/hwmon*/temp1_input"
+}
+
+cpu_temperature 1 {
+    format = "%degrees°"
+    max_threshold = "75"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input"
+#   path = "/sys/class/hwmon/hwmon*/temp1_input"
+}
+
+cpu_temperature 2 {
+    format = "%degrees°"
+    max_threshold = "75"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input"
+#   path = "/sys/class/hwmon/hwmon*/temp1_input"
+}
+
+cpu_temperature 3 {
+    format = "%degrees°"
+    max_threshold = "75"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp4_input"
+#   path = "/sys/class/hwmon/hwmon*/temp1_input"
 }
 
 disk "/" {
-        format = " %used"
+    format = " %used"
 }
 
 disk "/home" {
-        format = " %used"
+    format = " %used"
 }
 
 volume master {
-	format = " %volume"
-	format_muted = " (%volume)"
-	device = "pulse"
+    format = " %volume"
+    format_muted = " (%volume)"
+    device = "pulse"
 }
-
