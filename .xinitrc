@@ -2,6 +2,8 @@
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+[[ -f ~/.session-errors ]] && mv ~/.xsession-errors ~/.xsession-errors.old
+
 # Source .xprofile
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
