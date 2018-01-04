@@ -22,7 +22,7 @@ order += "volume master"
 order += "tztime local"
 
 tztime local {
-    format = "%a, %e %b   %R"
+    format = "%a, %e %b  %R"
 }
 
 cpu_usage {
