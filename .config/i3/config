@@ -182,7 +182,7 @@ bindsym XF86AudioPause exec --no-startup-id cmus-remote --play-pause
 bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
 bindsym XF86AudioPrev exec --no-startup-id cmus-remote --previous
 
-bindsym Print exec screenshot
+bindsym Print exec gnome-screenshot -i
 
 for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
