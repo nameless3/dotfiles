@@ -11,3 +11,5 @@ SAVEHIST=1000
 autoload -Uz compinit promptinit
 compinit
 promptinit
+
+setopt COMPLETE_ALIASES
