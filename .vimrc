@@ -55,6 +55,9 @@ map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
 
+nnoremap j gj
+nnoremap k gk
+
 if has('mouse')
   set mouse=a
 endif
