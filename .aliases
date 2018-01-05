@@ -16,3 +16,7 @@ alias testing-repo='pacman --color=always -Sl {,community-}testing|grep -F "[ins
 alias custom-repo='pacman --color=always -Sl custom|grep -F "[installed]"'
 alias wlogs='cd ~/.config/weechat/logs/'
 alias si3='startx ~/.xinitrc i3'
+alias n='neovim'
+alias sn='sudo neovim'
+alias i3config='neovim ~/.config/i3/config'
+alias r='ranger'
