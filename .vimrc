@@ -29,6 +29,7 @@ set history=200
 set showcmd
 set wildmenu
 set splitright
+set splitbelow
 set cpoptions+=$
 
 set ttimeout        " time out for key codes
