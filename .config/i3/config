@@ -1,12 +1,13 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $term termite -e zsh
 
 font pango:xos4 Terminus 8
 
 floating_modifier $mod
 
-bindsym $mod+Return exec termite -e zsh
+bindsym $mod+Return exec $term
 
 bindsym $mod+q kill
 
