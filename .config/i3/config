@@ -1,7 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $term termite -e zsh
+set $term termite
 
 font pango:xos4 Terminus 8
 
@@ -12,7 +12,7 @@ set $default_gaps_outer 3
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term -e zsh
 
 bindsym $mod+q kill
 
