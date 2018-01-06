@@ -1,11 +1,3 @@
-if &compatible
-  set nocompatible
-endif
-
-if exists('skip_defaults_vim')
-  finish
-endif
-
 let g:airline_theme='ravenpower'
 
 set number
