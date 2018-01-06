@@ -2,7 +2,7 @@ Xft.dpi: 96
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 
-URxvt.font: xft:xos4 Terminus:size=7,xft:Symbola
+URxvt.font: xft:xos4 Terminus:size=8,xft:Symbola
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.geometry: 93x35
