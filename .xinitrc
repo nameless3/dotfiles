@@ -19,7 +19,7 @@ xset s off -dpms
 setxkbmap -option caps:escape
 
 # Set a default DE/WM
-session=${1:-cinnamon}
+session=${1:-i3}
 
 case $session in
     cinnamon        ) exec cinnamon-session;;
