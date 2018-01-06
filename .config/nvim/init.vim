@@ -41,8 +41,7 @@ nnoremap k gk
 
 " set mouse=a
 
-if has("autocmd")
-  filetype plugin indent on
+filetype plugin indent on
 
   " Put these in an autocmd group, so that you can revert them with:
   " ":augroup vimStartup | au! | augroup END"
@@ -54,8 +53,6 @@ if has("autocmd")
       \ | endif
 
   augroup END
-
-endif " has("autocmd")
 
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
