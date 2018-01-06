@@ -19,7 +19,7 @@ set smartcase
 
 set noshelltemp
 set secure
-#set noswapfile
+" set noswapfile
 
 set splitright
 set splitbelow
