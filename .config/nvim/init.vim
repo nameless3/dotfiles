@@ -1,6 +1,8 @@
 set rtp^=/usr/share/vim/vimfiles/
 
 let g:airline_theme='ravenpower'
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
 set number
 set relativenumber
@@ -38,6 +40,9 @@ inoremap <C-U> <C-G>u<C-U>
 
 nnoremap j gj
 nnoremap k gk
+
+nnoremap gj j
+nnoremap gk k
 
 " set mouse=a
 
