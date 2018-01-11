@@ -4,6 +4,7 @@ Xft.rgba: rgb
 
 URxvt.font: xft:xos4 Terminus:size=8,xft:Symbola
 URxvt.scrollBar: false
+Urxvt.saveLines: 10000
 URxvt.urgentOnBell: true
 URxvt.geometry: 93x35
 URxvt.perl-ext-common: default,matcher
