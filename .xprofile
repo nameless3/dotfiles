@@ -2,8 +2,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export EDITOR=/bin/nvim
-export SUDO_EDITOR=/bin/nvim
+export EDITOR=/usr/bin/nvim
+export SUDO_EDITOR=/usr/bin/nvim
 export RANGER_LOAD_DEFAULT_RC=false
 export QT_QPA_PLATFORMTHEME=gtk2
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
