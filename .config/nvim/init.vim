@@ -4,6 +4,12 @@ let g:airline_theme='ravenpower'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
+let NERDTreeNaturalSort=1
+map <C-n> :NERDTreeToggle<CR>
+
 colorscheme pablo
 set number
 set relativenumber
