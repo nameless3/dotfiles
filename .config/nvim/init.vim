@@ -51,7 +51,22 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" set mouse=a
+" Nuke evil whitespace from orbit (from eli-schwartz)
+function StripTrailingWhitespace()
+    " Don't remove trailing whitespace for these filetypes
+    if &ft =~ 'markdown\|gitsendemail\|json'
+        return
+    endif
+    let save_cursor = getpos(".")
+    " Match and remove blank lines at EOF
+    :silent! %s#\($\n\s*\)\+\%$##
+    " Match and remove whitespace at EOL
+    :silent! %s#\s\+$##
+    call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call StripTrailingWhitespace()
+
+set mouse=a
 
 filetype plugin indent on
 
