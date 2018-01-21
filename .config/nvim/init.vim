@@ -14,16 +14,21 @@ colorscheme pablo
 set number
 set relativenumber
 set cursorline
-set wrap
+set synmaxcol=200
+
+set list
+set linebreak
+set breakindent
+set showbreak=\\\\\
 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set linebreak
 set grepprg=rg
 
 set ignorecase
+set infercase
 set smartcase
 
 set noshelltemp
@@ -34,20 +39,20 @@ set splitright
 set splitbelow
 set cpoptions+=$
 
-set ttimeout        " time out for key codes
-set ttimeoutlen=100 " wait up to 100ms after Esc for special key
+set ttimeout
+set ttimeoutlen=100
 
 set scrolloff=5
-
+set mouse=a
 " set nrformats-=octal
 
 map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
+inoremap <C-l> <C-x><C-l>
 
-nnoremap j gj
-nnoremap k gk
-
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 nnoremap gj j
 nnoremap gk k
 
@@ -66,12 +71,8 @@ function StripTrailingWhitespace()
 endfunction
 autocmd BufWritePre * call StripTrailingWhitespace()
 
-set mouse=a
-
-filetype plugin indent on
-
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
+" Put these in an autocmd group, so that you can revert them with:
+" ":augroup vimStartup | au! | augroup END"
   augroup vimStartup
     au!
     autocmd BufReadPost *
@@ -81,7 +82,14 @@ filetype plugin indent on
 
   augroup END
 
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
+
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
           \ | wincmd p | diffthis
 endif
+
