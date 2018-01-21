@@ -20,7 +20,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Inter UI 9
+    font = Ubuntu 9
     line_height = 0
 
     # Possible values are:
