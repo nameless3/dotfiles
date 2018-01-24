@@ -1,6 +1,6 @@
 set rtp^=/usr/share/vim/vimfiles/
 
-let g:airline_theme='ravenpower'
+let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
