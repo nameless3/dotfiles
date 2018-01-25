@@ -236,9 +236,9 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-assign [class="newsboat"] $ws2
-assign [class="htop"] $ws2
-assign [class="Geany"] $ws3
+assign [class="newsboat"] $ws3
+assign [class="htop"] $ws3
+assign [class="Geany"] $ws2
 assign [class="Virt-manager"] $ws4
 assign [class="Chromium"] $ws5
 
