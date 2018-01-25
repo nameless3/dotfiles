@@ -2,9 +2,9 @@ set rtp^=/usr/share/vim/vimfiles/
 
 let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
 
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let NERDTreeNaturalSort=1
@@ -73,20 +73,20 @@ autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Put these in an autocmd group, so that you can revert them with:
 " ":augroup vimStartup | au! | augroup END"
-  augroup vimStartup
-    au!
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
+augroup vimStartup
+  au!
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 
-  augroup END
-
-augroup autoSaveAndRead
-    autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold * silent! checktime
 augroup END
+
+"augroup autoSaveAndRead
+"    autocmd!
+"    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+"    autocmd CursorHold * silent! checktime
+"augroup END
 
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
