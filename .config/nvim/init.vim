@@ -10,7 +10,7 @@ let NERDTreeShowHidden=1
 let NERDTreeNaturalSort=1
 map <C-n> :NERDTreeToggle<CR>
 
-colorscheme pablo
+colorscheme ron
 set number
 set relativenumber
 set cursorline
@@ -92,4 +92,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
           \ | wincmd p | diffthis
 endif
-
