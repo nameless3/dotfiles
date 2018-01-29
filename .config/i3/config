@@ -72,7 +72,7 @@ bindsym $mod+o gaps inner current set $default_gaps_inner; gaps outer current se
 bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #bindsym $mod+Shift+p
 #bindsym $mod+Shift+t
-#bindsym $mod+u
+bindsym $mod+u exec pavucontrol
 #bindsym $mod+Shift+u
 #bindsym $mod+v
 #bindsym $mod+Shift+v
@@ -246,3 +246,4 @@ exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet &
 #exec xset s off -dpms
+
