@@ -18,8 +18,8 @@ order += "cpu_temperature 0"
 order += "cpu_temperature 1"
 order += "cpu_temperature 2"
 order += "cpu_temperature 3"
-order += "volume master"
 order += "tztime local"
+order += "volume master"
 
 tztime local {
     format = "%a,%e %b  %R"
