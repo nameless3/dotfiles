@@ -14,5 +14,6 @@ export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
 export NO_AT_BRIDGE=1
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export SYSTEMD_LESS="FRXMK"
 
 export LANG=en_US.utf8
