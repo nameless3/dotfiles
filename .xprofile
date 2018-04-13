@@ -17,3 +17,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export SYSTEMD_LESS="FRXMK"
 
 export LANG=en_US.utf8
+export XKB_DEFAULT_OPTIONS=caps:swapescape
+export XKB_DEFAULT_OPTIONS=terminate:ctrl_alt_bksp
