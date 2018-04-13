@@ -16,5 +16,6 @@ alias testing-repo='pacman --color=always -Sl {,community-}testing|grep -F "[ins
 alias custom-repo='pacman --color=always -Sl custom|grep -F "[installed]"'
 alias wlogs='cd ~/.config/weechat/logs/'
 alias n='nvim'
+alias p='pacman'
 alias i3config='nvim ~/.config/i3/config'
 alias git='hub'
