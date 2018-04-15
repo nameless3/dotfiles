@@ -4,11 +4,12 @@
 	allow_bold = true
 	geometry = 560x400
 	scrollback_lines = 10000
+	hyperlinks = true
 
 [colors]
 	background = #002B36
 	foreground = #839496
-	foreground_bold = #839496
+	foreground_bold = #ffffff
 	color0 = #000000
 	color8 = #555753
 	color1 = #cc241d
