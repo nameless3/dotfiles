@@ -17,6 +17,8 @@ fi
 
 xset s off -dpms
 xset r rate 200 30
+setxkbmap -option caps:swapescape
+setxkbmap -option terminate:ctrl_alt_bksp
 
 # Set a default DE/WM
 session=${1:-i3}
