@@ -3,7 +3,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export EDITOR=/usr/bin/nvim
-export SUDO_EDITOR=/usr/bin/nvim
+export SUDO_EDITOR="/usr/bin/nvim -d"
 export DIFFPROG=/usr/bin/nvim
 export RANGER_LOAD_DEFAULT_RC=false
 export QT_QPA_PLATFORMTHEME=gtk2
