@@ -21,6 +21,7 @@ setxkbmap -option caps:swapescape
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # Set a default DE/WM
+# or pick one manually: startx ~/.xinitrc session
 session=${1:-i3}
 
 case $session in
