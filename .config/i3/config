@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:ft=conf
 set $mod Mod4
-set $term urxvt
+set $term termite
 
 font pango:xos4 Terminus 8
 
@@ -59,7 +59,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 
 
 #bindsym $mod+b
 #bindsym $mod+Shift+b
-#bindsym $mod+c
+bindsym $mod+c exec $term -e cmus
 #bindsym $mod+Shift+d
 #bindsym $mod+Shift+f
 bindsym $mod+g exec geany
@@ -75,7 +75,7 @@ bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #bindsym $mod+Shift+t
 bindsym $mod+u exec pavucontrol
 #bindsym $mod+Shift+u
-#bindsym $mod+v
+bindsym $mod+v exec tkpacman
 #bindsym $mod+Shift+v
 #bindsym $mod+x
 #bindsym $mod+Shift+x
@@ -230,6 +230,7 @@ for_window [class="Gnome-disks"] floating enable
 for_window [class="Main.tcl"] floating enable
 for_window [class="Klavaro"] floating enable
 for_window [class="Transmission-gtk"] floating enable
+
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -247,4 +248,3 @@ exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet &
 #exec xset s off -dpms
-
