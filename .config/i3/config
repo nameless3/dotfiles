@@ -11,7 +11,7 @@ set $default_gaps_outer 3
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
-bindsym $mod+Return exec $term -e zsh
+bindsym $mod+Return exec $term -e /usr/bin/zsh
 
 bindsym $mod+q kill
 
