@@ -16,13 +16,13 @@ bind-key k up
 bind-key l open
 
 #highlight	<target> <regex> <fgcolor> [<bgcolor> [<attribute> ...]]
-highlight	article		"^(Feed|Title|Author|Link|Date|Links):"	white color5
+highlight   article     "^(Feed|Title|Author|Link|Date|Links):" color0 color4
 
-#color	<element>				<fgcolor>	<bgcolor>	[<attr> ...]
-color	article					color13		default		
-color	listnormal 				default 	default
-color	listfocus 				white 		color5
-color	listnormal_unread 		        white	 	default
-color	listfocus_unread 		        color7 		color5
-color	background 				default 	default
-color	info 					default		color0
+#color  <element>               <fgcolor>   <bgcolor>   [<attr> ...]
+color   article                 color8      default
+color   background              default     default
+color   listnormal              color8      default
+color   listfocus               color0      color6
+color   listnormal_unread       color14     default
+color   listfocus_unread        color0      color6
+color   info                    color0      color6
