@@ -1,4 +1,5 @@
 # vim:fileencoding=utf-8:ft=conf
+
 set $mod Mod4
 set $term termite
 
@@ -82,12 +83,6 @@ bindsym $mod+v exec tkpacman
 #bindsym $mod+y
 #bindsym $mod+Shift+y
 #bindsym $mod+Shift+z
-#bindsym $mod+å
-#bindsym $mod+Shift+å
-#bindsym $mod+ä gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
-#bindsym $mod+Shift+ä gaps inner current set 0; gaps outer current set 0
-#bindsym $mod+ö
-#bindsym $mod+Shift+ö
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -211,25 +206,27 @@ bar {
         }
 }
 
-for_window [class="Pavucontrol"] floating enable
-for_window [class="mpv"] floating enable
-for_window [class="pcsxr"] floating enable
-for_window [class="Snes9x-gtk"] floating enable
-for_window [class="Desmume"] floating enable
-for_window [class="gnome-calculator"] floating enable
-for_window [class="retroarch"] floating enable
-for_window [class="keepass"] floating enable
-for_window [class="scummvm"] floating enable
-for_window [class="QEMU"] floating enable
-for_window [class="Virt-manager"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Guvcview"] floating enable
-for_window [class="Gpa"] floating enable
 for_window [class="Dconf-editor"] floating enable
+for_window [class="Desmume"] floating enable
+for_window [class="File-roller"] floating enable
+for_window [class="gnome-calculator"] floating enable
 for_window [class="Gnome-disks"] floating enable
-for_window [class="Main.tcl"] floating enable
+for_window [class="Gpa"] floating enable
+for_window [class="Guvcview"] floating enable
+for_window [class="keepass"] floating enable
 for_window [class="Klavaro"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Main.tcl"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="(?i)nm-connection-editor"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="pcsxr"] floating enable
+for_window [class="QEMU"] floating enable
+for_window [class="retroarch"] floating enable
+for_window [class="scummvm"] floating enable
+for_window [class="Snes9x-gtk"] floating enable
 for_window [class="Transmission-gtk"] floating enable
+for_window [class="Virt-manager"] floating enable
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -248,3 +245,9 @@ exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet &
 #exec xset s off -dpms
+
+#for sway
+#include /etc/sway/config.d/*
+#output "*" bg /home/$USER/Pictures/Bakgrunder/arch1.png fill
+#bindsym Print exec swaygrab ~/Pictures/screenshots/$(date +"%Y-%m-%d_%H:%M:%S.png")
+#bindsym $mod+Pause exec swaylock -i `/home/$USER/Pictures/Bakgrunder/arch1.png` --scaling fill
