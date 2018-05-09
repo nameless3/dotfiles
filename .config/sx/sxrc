@@ -1,0 +1,11 @@
+#!/bin/sh --
+
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+xset s off -dpms
+xset r rate 200 30
+setxkbmap -option caps:swapescape
+setxkbmap -option terminate:ctrl_alt_bksp
+
+exec i3
