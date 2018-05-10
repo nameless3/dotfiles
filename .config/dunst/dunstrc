@@ -20,7 +20,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Ubuntu 9
+    font = Source Sans Pro 10
     line_height = 0
 
     # Possible values are:
