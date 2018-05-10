@@ -17,7 +17,7 @@ bindsym $mod+Return exec $term -e /usr/bin/zsh
 bindsym $mod+q kill
 
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/arch1.png
+bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/bloodborne1.png
 bindsym Print exec gnome-screenshot -i
 
 bindsym $mod+h focus left
@@ -248,6 +248,6 @@ exec --no-startup-id nm-applet &
 
 #for sway
 #include /etc/sway/config.d/*
-#output "*" bg /home/$USER/Pictures/Bakgrunder/arch1.png fill
+#output "*" bg /home/$USER/Pictures/Bakgrunder/bloodborne1.png fill
 #bindsym Print exec swaygrab ~/Pictures/screenshots/$(date +"%Y-%m-%d_%H:%M:%S.png")
-#bindsym $mod+Pause exec swaylock -i `/home/$USER/Pictures/Bakgrunder/arch1.png` --scaling fill
+#bindsym $mod+Pause exec swaylock -i `/home/$USER/Pictures/Bakgrunder/bloodborne1.png` --scaling fill
