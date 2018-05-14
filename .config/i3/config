@@ -234,6 +234,7 @@ for_window [window_role="bubble"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [title="Library"] floating enable
 
 assign [class="newsboat"] $ws3
 assign [class="htop"] $ws3
