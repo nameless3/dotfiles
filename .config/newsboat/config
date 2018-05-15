@@ -22,7 +22,7 @@ highlight   article     "^(Feed|Title|Author|Link|Date|Links):" color0 color4
 color   article                 color8      default
 color   background              default     default
 color   listnormal              color8      default
-color   listfocus               color0      color6
-color   listnormal_unread       color14     default
-color   listfocus_unread        color0      color6
-color   info                    color0      color6
+color   listfocus               color0      color6      bold
+color   listnormal_unread       color14     default     bold
+color   listfocus_unread        color0      color6      bold
+color   info                    color0      color6      bold
