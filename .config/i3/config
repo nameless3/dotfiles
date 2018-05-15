@@ -18,7 +18,9 @@ bindsym $mod+q kill
 
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/bloodborne1.png
-bindsym Print exec gnome-screenshot -i
+bindsym Print exec import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+#bindsym Shift+Print exec import ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+bindsym Shift+Print exec gnome-screenshot -i
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
