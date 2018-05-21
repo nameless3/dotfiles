@@ -95,14 +95,14 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#002B36"
-    foreground = "#888888"
+    background = "#282828"
+    foreground = "##928374"
     timeout = 10
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#002B36"
-    foreground = "#ffffff"
+    background = "#282828"
+    foreground = "##928374"
     timeout = 10
     #icon = /path/to/icon
 
