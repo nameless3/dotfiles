@@ -8,4 +8,15 @@ xset r rate 200 30
 setxkbmap -option caps:swapescape
 setxkbmap -option terminate:ctrl_alt_bksp
 
-exec i3
+# Set a default DE/WM     
+# or pick one manually: startx ~/.xinitrc session
+session=${1:-i3}
+
+case $session in
+    cinnamon        ) exec cinnamon-session;;
+    cinnamon2d      ) exec cinnamon-session-cinnamon2d;;
+    i3|i3wm         ) exec i3;;
+    xfce4           ) exec startxfce4;;
+# No known session, try to run it as command
+    *               ) exec $1;;
+esac
