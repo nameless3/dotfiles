@@ -88,10 +88,11 @@ bindsym $mod+v exec --no-startup-id tkpacman
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote --play-pause
-bindsym XF86AudioPause exec --no-startup-id cmus-remote --play-pause
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
+bindsym XF86AudioPause exec --no-startup-id cmus-remote --pause
+bindsym XF86AudioStop exec --no-startup-id cmus-remote --stop
 bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote --previous
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
 
 set $ws1 "1:I"
 set $ws2 "2:II"
@@ -247,8 +248,8 @@ assign [class="Chromium"] $ws5
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton
-exec --no-startup-id dunst
-exec --no-startup-id nm-applet &
+exec --no-startup-id dunst &
+#exec --no-startup-id nm-applet &
 #exec xset s off -dpms
 
 #for sway
