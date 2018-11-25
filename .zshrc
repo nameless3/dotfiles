@@ -1,4 +1,4 @@
-. ~/.config/zsh/zsh-autosuggestions.zsh
+. /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 . /usr/share/fzf/completion.zsh
 . ~/.aliases
 set -o vi
