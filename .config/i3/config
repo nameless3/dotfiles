@@ -16,11 +16,12 @@ bindsym $mod+Return exec $term -e /usr/bin/zsh
 
 bindsym $mod+q kill
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/bloodborne1.png
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id "rofi -show drun -width 100 -location 1 -lines 5 -columns 10 -bw 2 -yoffset -2 -theme /usr/share/rofi/themes/gruvbox-dark.rasi"
+bindsym $mod+Pause exec i3lock --image=/home/$USER/Pictures/Bakgrunder/bladerunner2049-1.png
 bindsym Print exec import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
-#bindsym Shift+Print exec import ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
-bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
+bindsym --release Shift+Print exec import ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+#bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -253,7 +254,9 @@ exec --no-startup-id dunst &
 #exec xset s off -dpms
 
 #for sway
-#include /etc/sway/config.d/*
-#output "*" bg ~/Pictures/Bakgrunder/bloodborne1.png fill
+#include @sysconfdir@/sway/config.d/*
+#output * bg ~/Pictures/Bakgrunder/bladerunner2049-1.png fill
+#swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
 #bindsym Print exec swaygrab ~/Pictures/screenshots/$(date +"%Y-%m-%d_%H:%M:%S.png")
-#bindsym $mod+Pause exec swaylock -i `~/Pictures/Bakgrunder/bloodborne1.png` --scaling fill
+#bindsym $mod+Pause exec swaylock -i `/home/$USER/Pictures/Bakgrunder/bladerunner2049-1.png` --scaling fill
+#bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
