@@ -252,11 +252,3 @@ exec --no-startup-id compton
 exec --no-startup-id dunst &
 #exec --no-startup-id nm-applet &
 #exec xset s off -dpms
-
-#for sway
-#include @sysconfdir@/sway/config.d/*
-#output * bg ~/Pictures/Bakgrunder/bladerunner2049-1.png fill
-#swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
-#bindsym Print exec swaygrab ~/Pictures/screenshots/$(date +"%Y-%m-%d_%H:%M:%S.png")
-#bindsym $mod+Pause exec swaylock -i `/home/$USER/Pictures/Bakgrunder/bladerunner2049-1.png` --scaling fill
-#bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
