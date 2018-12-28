@@ -20,7 +20,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Source Sans Pro 10
+    font = IBM Plex Sans 10
     line_height = 0
 
     # Possible values are:
