@@ -1,0 +1,3 @@
+set font "IBM Plex Mono 10"
+set statusbar-bg "#282828"
+set statusbar-fg "#928374"
