@@ -19,8 +19,8 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id "rofi -show drun -width 100 -location 1 -lines 6 -columns 10 -bw 2 -yoffset -2 -font 'xos4 Terminus 8' -theme /usr/share/rofi/themes/gruvbox-dark.rasi"
 bindsym $mod+Pause exec swaylock -i ~/Pictures/Bakgrunder/bladerunner2049-1.png --scaling fill
 #bindsym Print exec --no-startup-id import -window root ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
-bindsym Print exec swaygrab ~/Pictures/$(date +"%Y-%m-%d_%H:%M:%S.png")
-bindsym --release Shift+Print exec --no-startup-id import ~/Pictures/$(date '+%Y%m%d-%H%M%S').png
+bindsym Print exec grim ~/Pictures/$(date +"%Y-%m-%d_%H:%M:%S").png
+bindsym --release Shift+Print exec --no-startup-id import ~/Pictures/$(date "+%Y%m%d-%H%M%S").png
 #bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
 output * bg ~/Pictures/Bakgrunder/bladerunner2049-1.png fill
 
@@ -77,7 +77,7 @@ bindsym $mod+o gaps inner current set $default_gaps_inner; gaps outer current se
 bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #bindsym $mod+Shift+p
 #bindsym $mod+Shift+t
-bindsym $mod+u exec --no-startup-id pavucontrol-qt
+bindsym $mod+u exec pavucontrol-qt
 #bindsym $mod+Shift+u
 bindsym $mod+v exec --no-startup-id tkpacman
 #bindsym $mod+Shift+v
@@ -87,14 +87,14 @@ bindsym $mod+v exec --no-startup-id tkpacman
 #bindsym $mod+Shift+y
 #bindsym $mod+Shift+z
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
-bindsym XF86AudioPause exec --no-startup-id cmus-remote --pause
-bindsym XF86AudioStop exec --no-startup-id cmus-remote --stop
-bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec cmus-remote --pause
+bindsym XF86AudioPause exec cmus-remote --pause
+bindsym XF86AudioStop exec cmus-remote --stop
+bindsym XF86AudioNext exec cmus-remote --next
+bindsym XF86AudioPrev exec cmus-remote --prev
 
 set $ws1 "1:I"
 set $ws2 "2:II"
@@ -189,11 +189,11 @@ set $inactive-text-color #928374
 set $urgent-bg-color     #900000
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+#                       border              background         text                 indicator   child_border
+client.focused          $bg-color           $bg-color          $text-color          #00ff00     $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00     $urgent-bg-color
 
 bar {
         status_command i3status
@@ -215,7 +215,7 @@ input <identifier> {
     xkb_variant ,nodeadkeys
     xkb_options caps:swapescape,terminate:ctrl_alt_bksp
     repeat_delay 200
-    repeat_rate 30
+    repeat_rate 20
 }
 
 for_window [class="Dconf-editor"] floating enable
@@ -250,16 +250,11 @@ for_window [window_type="menu"] floating enable
 for_window [title="Library"] floating enable
 for_window [title="Page Info"] floating enable
 
-assign [class="newsboat"] $ws3
-assign [class="htop"] $ws3
 assign [class="Geany"] $ws2
-assign [class="Virt-manager"] $ws4
 assign [class="Chromium"] $ws5
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id compton
-exec --no-startup-id mako &
-#exec --no-startup-id nm-applet &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec mako &
 exec xrdb -merge ~/.Xresources
 swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
 
