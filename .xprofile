@@ -16,6 +16,7 @@ export NO_AT_BRIDGE=1
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export SYSTEMD_LESS="FRXMK"
+export LESSHISTFILE=-
 export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_CONFIG_HOME/aspell/en.pws; repl $XDG_CONFIG_HOME/aspell/en.prepl"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
