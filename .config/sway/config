@@ -51,7 +51,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+t split toggle
 
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Alt+space focus mode_toggle
 
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
