@@ -18,7 +18,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export SYSTEMD_LESS="FRXMK"
 export LESSHISTFILE=-
 export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_CONFIG_HOME/aspell/en.pws; repl $XDG_CONFIG_HOME/aspell/en.prepl"
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 export LANG=en_US.utf8
 export XKB_DEFAULT_OPTIONS=caps:swapescape,terminate:ctrl_alt_bksp
