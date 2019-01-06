@@ -1,8 +1,8 @@
 . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 . /usr/share/fzf/completion.zsh
-. ~/.aliases
+. ~/.config/aliases
 set -o vi
-HISTFILE=~/.bash_history
+HISTFILE=~/.local/share/bash_history
 
 autoload -Uz compinit promptinit
 compinit
