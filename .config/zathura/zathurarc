@@ -4,3 +4,6 @@ set statusbar-fg "#928374"
 set statusbar-home-tilde
 set recolor-lightcolor "#282828"
 set recolor-darkcolor "#928374"
+map i recolor
+map r reload
+map R rotate
