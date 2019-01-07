@@ -1,10 +1,10 @@
 #!/bin/sh --
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-[ -f ~/.xprofile ] && . ~/.xprofile
+[[ -f ~/.config/X11/Xresources ]] && xrdb -merge -I$HOME ~/.config/X11/Xresources
+[ -f ~/.profile ] && . ~/.profile
 
 xset s off -dpms
-xset r rate 200 30
+xset r rate 200 40
 setxkbmap -option caps:swapescape
 setxkbmap -option terminate:ctrl_alt_bksp
 
@@ -16,7 +16,7 @@ case $session in
     cinnamon        ) exec cinnamon-session;;
     cinnamon2d      ) exec cinnamon-session-cinnamon2d;;
     i3|i3wm         ) exec i3;;
-    xfce4           ) exec startxfce4;;
+    awesome         ) exec awesome;;
 # No known session, try to run it as command
     *               ) exec $1;;
 esac
