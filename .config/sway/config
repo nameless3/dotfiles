@@ -1,7 +1,6 @@
 # vim:fileencoding=utf-8:ft=conf
 
 set {
-
     $mod Mod4
     $term termite
 
@@ -39,14 +38,14 @@ gaps outer $default_gaps_outer
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-output * bg ~/Pictures/Bakgrunder/bladerunner2049-1.png fill
+output * bg ~/Pictures/bg/bladerunner2049-1.png fill
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/zsh
     $mod+q kill
 
     $mod+d exec "rofi -show drun -width 100 -location 1 -lines 6 -columns 10 -bw 2 -yoffset -2 -font 'xos4 Terminus 8' -theme /usr/share/rofi/themes/gruvbox-dark.rasi"
-    $mod+Pause exec swaylock -i ~/Pictures/Bakgrunder/bladerunner2049-1.png --scaling fill
+    $mod+Pause exec swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill
     Print exec grim ~/Pictures/$(date +"%F-%T").png
     --release Shift+Print exec grim -g "$(slurp)" ~/Pictures/$(date "+%F-%T").png
 #   --release Shift+Print exec import ~/Pictures/$(date "+%F-%T").png
@@ -230,29 +229,28 @@ input * {
 }
 
 for_window {
-    [class="Dconf-editor"] floating enable
+    [app_id="dconf-editor"] floating enable
     [class="Desmume"] floating enable
-    [class="File-roller"] floating enable
+    [app_id="file-roller"] floating enable
     [class="Firefox" window_role="About"] floating enable
-    [class="Gnome-calculator"] floating enable
-    [class="Gnome-disks"] floating enable
+    [app_id="gnome-calculator"] floating enable
+    [app_id="gnome-disks"] floating enable
     [class="Gpa"] floating enable
-    [class="Guvcview"] floating enable
+    [app_id="guvcview"] floating enable
     [class="keepass"] floating enable
-    [class="Klavaro"] floating enable
-    [class="Lxappearance"] floating enable
+    [app_id="klavaro"] floating enable
+    [app_id="lxappearance"] floating enable
     [class="Main.tcl"] floating enable
     [class="mpv"] floating enable
     [class="(?i)nm-connection-editor"] floating enable
     [class="Pavucontrol"] floating enable
     [class="pcsxr"] floating enable
-    [class="QEMU"] floating enable
     [class="retroarch"] floating enable
     [class="scummvm"] floating enable
-    [class="Snes9x-gtk"] floating enable
-    [class="Transmission-gtk"] floating enable
-    [class="Virt-manager"] floating enable
-
+    [app_id="snes9x"] floating enable
+    [app_id="transmission-gtk"] floating enable
+    [app_id="virt-manager"] floating enable
+    
     [window_role="pop-up"] floating enable
     [window_role="task_dialog"] floating enable
     [window_role="bubble"] floating enable
@@ -263,7 +261,7 @@ for_window {
 }
 
 assign {
-    [class="Geany"] $ws2
+    [app_id="geany"] $ws2
     [class="Chromium"] $ws5
 }
 
@@ -273,7 +271,7 @@ exec {
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
 #   source ~/.profile
 #   swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
-    swayidle timeout 30000 'swaylock -i ~/Pictures/Bakgrunder/bladerunner2049-1.png --scaling fill' timeout 30000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+    swayidle timeout 300000 'swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill' timeout 300000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 }
 
 include @sysconfdir@/sway/config.d/*
