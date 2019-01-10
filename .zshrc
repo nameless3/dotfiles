@@ -2,7 +2,7 @@
 . /usr/share/fzf/completion.zsh
 . ~/.config/aliases
 set -o vi
-HISTFILE=~/share/bash_history
+HISTFILE=$XDG_DATA_HOME/bash_history
 
 autoload -Uz compinit promptinit
 compinit
