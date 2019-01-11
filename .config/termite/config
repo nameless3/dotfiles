@@ -4,7 +4,7 @@
 	allow_bold = true
 	scrollback_lines = 10000
 	hyperlinks = true
-#[colors]
+[colors]
 #	background = #002B36
 #	foreground = #839496
 #	foreground_bold = #ffffff
@@ -25,10 +25,9 @@
 #	color7 = #d3d7cf
 #	color15 = #eeeeee
 
-[colors]
 	background = #282828
-	foreground = #928374
-	foreground_bold = #ffffff
+	foreground = #D5C4A1
+	foreground_bold = #FFFFFF
 # Black + DarkGrey
 	color0 = #282828
 	color8 = #928374
@@ -41,7 +40,7 @@
 # DarkYellow + Yellow
 	color3 = #D79921
 	color11 = #FABD2F
-#DarkBlue + Blue
+# DarkBlue + Blue
 	color4 = #458588
 	color12 = #83A598
 # DarkMagenta + Magenta
@@ -53,6 +52,3 @@
 # LightGrey + White
 	color7 = #A89984
 	color15 = #EBDBB2
-
-# vim: ft=dosini cms=#%s
-
