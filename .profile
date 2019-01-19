@@ -2,17 +2,17 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/config"
+export XDG_CACHE_HOME="$HOME/cache"
 export XDG_DATA_HOME="$HOME/share"
 
 export ASPELL_CONF="personal $XDG_CONFIG_HOME/aspell/en.pws; repl $XDG_CONFIG_HOME/aspell/en.prepl"
 export AUR_PAGER=ranger
+export DCONF_PROFILE="${XDG_CONFIG_HOME:-$HOME/config}"/dconf/user
 export DIFFPROG=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GNUPGPHOME="$XDG_DATA_HOME"/gnupgp
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -20,7 +20,6 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export LANG=en_US.utf8
 export LESSHISTFILE=-
 export NO_AT_BRIDGE=1
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export QT_QPA_PLATFORMTHEME=gtk2
 export RANGER_LOAD_DEFAULT_RC=false
 export SUDO_EDITOR="/usr/bin/nvim -d"
