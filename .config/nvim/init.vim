@@ -1,6 +1,6 @@
 " set rtp^=/usr/share/vim/vimfiles/
 
-let g:airline_theme='luna'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -10,7 +10,7 @@ let NERDTreeShowHidden=1
 let NERDTreeNaturalSort=1
 map <C-n> :NERDTreeToggle<CR>
 
-colorscheme ron
+colorscheme gruvbox
 set number
 set relativenumber
 set cursorline
