@@ -10,6 +10,7 @@ let NERDTreeShowHidden=1
 let NERDTreeNaturalSort=1
 map <C-n> :NERDTreeToggle<CR>
 
+"let mapleader=<\SPACE>
 colorscheme gruvbox
 set number
 set relativenumber
@@ -19,7 +20,9 @@ set synmaxcol=200
 set list
 set linebreak
 set breakindent
-set showbreak=\\\\\
+"set showbreak=\\\\\
+let &showbreak='↳ '
+set listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,space:·
 
 set tabstop=4
 set softtabstop=4
@@ -71,8 +74,8 @@ function StripTrailingWhitespace()
     :silent! %s#\s\+$##
     call setpos('.', save_cursor)
 endfunction
-autocmd BufWritePre * call StripTrailingWhitespace()
 
+autocmd BufWritePre * call StripTrailingWhitespace()
 " Put these in an autocmd group, so that you can revert them with:
 " ":augroup vimStartup | au! | augroup END"
 augroup vimStartup
@@ -81,7 +84,6 @@ augroup vimStartup
     \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""
     \ | endif
-
 augroup END
 
 "augroup autoSaveAndRead
