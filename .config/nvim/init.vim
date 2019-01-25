@@ -46,6 +46,8 @@ set scrolloff=5
 set mouse=a
 " set nrformats-=octal
 
+map <F5> :bp<CR>
+map <F6> :bn<CR>
 map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
