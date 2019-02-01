@@ -38,7 +38,7 @@ gaps outer $default_gaps_outer
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-output * bg ~/Pictures/bg/bladerunner2049-1.png fill
+#output * bg ~/Pictures/bg/bladerunner2049-1.png fill
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/zsh
@@ -48,8 +48,8 @@ bindsym {
     $mod+Pause exec swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill
     Print exec grim ~/Pictures/$(date +"%F-%T").png
     --release Shift+Print exec grim -g "$(slurp)" ~/Pictures/$(date "+%F-%T").png
-#   --release Shift+Print exec import ~/Pictures/$(date "+%F-%T").png
-#   Shift+Print exec gnome-screenshot -i
+#    --release Shift+Print exec import ~/Pictures/$(date "+%F-%T").png
+#    Shift+Print exec gnome-screenshot -i
 
     $mod+h focus left
     $mod+j focus down
@@ -86,31 +86,34 @@ bindsym {
     $mod+Shift+r restart
     $mod+Shift+e exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-#   $mod+b
-#   $mod+Shift+b
+#    $mod+b
+#    $mod+Shift+b
     $mod+c exec $term -e cmus
-#   $mod+Shift+d
-#   $mod+Shift+f
+#    $mod+Shift+d
+#    $mod+Shift+f
     $mod+g exec geany
-#   $mod+i
-#   $mod+Shift+i
-#   $mod+m
-#   $mod+Shift+m
-#   $mod+Shift+n
+#    $mod+i
+#    $mod+Shift+i
+#    $mod+m
+#    $mod+Shift+m
+#    $mod+Shift+n
     $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
     $mod+Shift+o gaps inner current set 0; gaps outer current set 0
-#   $mod+Shift+p
-#   $mod+Shift+t
+#    $mod+Shift+p
+#    $mod+Shift+t
     $mod+u exec pavucontrol-qt
-#   $mod+Shift+u
+#    $mod+Shift+u
     $mod+v exec tkpacman
-#   $mod+Shift+v
-#   $mod+x
-#   $mod+Shift+x
+#    $mod+Shift+v
+#    $mod+x
+#    $mod+Shift+x
     $mod+y exec $term -e pulsemixer
-#   $mod+Shift+y
-#   $mod+Shift+z
-
+#    $mod+Shift+y
+#    $mod+Shift+z
+    $mod+odiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    $mod+adiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    $mod+aring exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -269,9 +272,8 @@ exec {
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
-#   source ~/.profile
-#   swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
-    swayidle timeout 300000 'swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill' timeout 300000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+#    swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
+#    swayidle timeout 300000 'swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill' timeout 300000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 }
 
 include @sysconfdir@/sway/config.d/*
