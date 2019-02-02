@@ -44,7 +44,8 @@ bindsym {
     $mod+Return exec $term -e /usr/bin/zsh
     $mod+q kill
 
-    $mod+d exec "rofi -show drun -width 100 -location 1 -lines 6 -columns 10 -bw 2 -yoffset -2 -font 'xos4 Terminus 8' -theme /usr/share/rofi/themes/gruvbox-dark.rasi"
+    $mod+d exec "rofi -show drun"
+    $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsh exec
     $mod+Pause exec swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill
     Print exec grim ~/Pictures/$(date +"%F-%T").png
     --release Shift+Print exec grim -g "$(slurp)" ~/Pictures/$(date "+%F-%T").png
