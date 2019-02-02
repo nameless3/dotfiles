@@ -24,6 +24,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export RANGER_LOAD_DEFAULT_RC=false
 export SUDO_EDITOR="/usr/bin/nvim -d"
 export SYSTEMD_LESS="FRXMK"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
