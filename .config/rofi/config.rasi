@@ -1,9 +1,9 @@
 configuration {
 	modi: "drun,window";
 	width: 100;
-	lines: 5;
+	lines: 6;
 	columns: 10;
-	font: "IBM Plex Sans 10";
+	font: "xos4 Terminus 8";
 	bw: 2;
 	location: 1;
 /*	padding: 5;*/
