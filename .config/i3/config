@@ -1,212 +1,204 @@
 # vim:fileencoding=utf-8:ft=conf
 
-set {
-    $mod Mod4
-    $term termite
+set $mod Mod4
+set $term termite
 
-    $ws1 "1:I"
-    $ws2 "2:II"
-    $ws3 "3:III"
-    $ws4 "4:IV"
-    $ws5 "5:V"
-    $ws6 "6:VI"
-    $ws7 "7:VII"
-    $ws8 "8:VIII"
-    $ws9 "9:IX"
-    $ws10 "10:X"
+set $ws1 "1:I"
+set $ws2 "2:II"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII"
+set $ws9 "9:IX"
+set $ws10 "10:X"
 
-    $bg-color            #13191C
-    $inactive-bg-color   #13191C
-    $text-color          #8EC07C
-    $inactive-text-color #928374
-    $urgent-bg-color     #900000
+set $bg-color            #13191C
+set $inactive-bg-color   #13191C
+set $text-color          #8EC07C
+set $inactive-text-color #928374
+set $urgent-bg-color     #900000
 
-    $default_gaps_inner 8
-    $default_gaps_outer 3
-    $mode_gaps gaps: (o)uter, (i)nner
-    $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
-    $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
-}
+set $default_gaps_inner 8
+set $default_gaps_outer 3
+set $mode_gaps gaps: (o)uter, (i)nner
+#set $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
+#set $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
 
 font pango:xos4 Terminus 8
 
-floating_modifier $mod normal
+floating_modifier $mod
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
 workspace_auto_back_and_forth yes
-default_border pixel 1
+default_border pixel 2
 
-bindsym {
-    $mod+Return exec $term -e /usr/bin/zsh
-    $mod+q kill
+bindsym $mod+Return exec $term -e /usr/bin/fish
+bindsym $mod+q kill
 
 #   $mod+d exec --no-startup-id i3-dmenu-desktop
-    $mod+d exec --no-startup-id "rofi -show drun -width 100 -location 1 -lines 6 -columns 10 -bw 2 -yoffset -2 -font 'xos4 Terminus 8' -theme /usr/share/rofi/themes/gruvbox-dark.rasi"
-    $mod+Pause exec i3lock --image=/home/$USER/Pictures/bg/bladerunner2049-1.png
-    Print exec --no-startup-id import -window root ~/Pictures/$(date '+%F-%T').png
-    --release Shift+Print exec --no-startup-id import ~/Pictures/$(date '+%F-%T').png
+bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+Pause exec i3lock --image=/home/$USER/pictures/bg/bladerunner2049-1.png
+bindsym Print exec import -window root ~/pictures/$(date '+%F-%T').png
+bindsym --release Shift+Print exec import ~/pictures/$(date '+%F-%T').png
 #   Shift+Print exec --no-startup-id gnome-screenshot -i
 
-    $mod+h focus left
-    $mod+j focus down
-    $mod+k focus up
-    $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-    $mod+Shift+h move left
-    $mod+Shift+j move down
-    $mod+Shift+k move up
-    $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-    $mod+n workspace next
-    $mod+p workspace prev
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 
-    $mod+f fullscreen toggle
-    $mod+Shift+s sticky toggle
-    $mod+z border toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+z border toggle
 
-    $mod+s layout stacking
-    $mod+w layout tabbed
-    $mod+e layout toggle split
-    $mod+t split toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+t split toggle
 
-    $mod+Shift+space floating toggle
-    $mod+Alt+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Alt+space focus mode_toggle
 
-    $mod+a focus parent
-    $mod+Shift+a focus child
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
-    $mod+Shift+minus move scratchpad
-    $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
-    $mod+Shift+c reload
-    $mod+Shift+r restart
-    $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #   $mod+b
 #   $mod+Shift+b
-    $mod+c exec $term -e cmus
+bindsym $mod+c exec $term -e /usr/bin/cmus
 #   $mod+Shift+d
 #   $mod+Shift+f
-    $mod+g exec --no-startup-id geany
+bindsym $mod+g exec /usr/bin/geany
 #   $mod+i
 #   $mod+Shift+i
 #   $mod+m
 #   $mod+Shift+m
 #   $mod+Shift+n
-    $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
-    $mod+Shift+o gaps inner current set 0; gaps outer current set 0
+bindsym $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
+bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #   $mod+Shift+p
 #   $mod+Shift+t
-    $mod+u exec --no-startup-id pavucontrol-qt
+bindsym $mod+u exec /usr/bin/pavucontrol-qt
 #   $mod+Shift+u
-    $mod+v exec --no-startup-id tkpacman
+bindsym $mod+v exec /usr/bin/tkpacman
 #   $mod+Shift+v
 #   $mod+x
 #   $mod+Shift+x
-    $mod+y exec $term -e pulsemixer
+bindsym $mod+y exec $term -e /usr/bin/pulsemixer
 #   $mod+Shift+y
 #   $mod+Shift+z
 
-    XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-    XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-    XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+odiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+adiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+aring exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 #   XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks
 #   XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
 #   XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
-    XF86AudioPlay exec --no-startup-id cmus-remote --pause
-    XF86AudioPause exec --no-startup-id cmus-remote --pause
-    XF86AudioStop exec --no-startup-id cmus-remote --stop
-    XF86AudioNext exec --no-startup-id cmus-remote --next
-    XF86AudioPrev exec --no-startup-id cmus-remote --prev
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
+bindsym XF86AudioPause exec --no-startup-id cmus-remote --pause
+bindsym XF86AudioStop exec --no-startup-id cmus-remote --stop
+bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
 
-    $mod+1 workspace $ws1
-    $mod+2 workspace $ws2
-    $mod+3 workspace $ws3
-    $mod+4 workspace $ws4
-    $mod+5 workspace $ws5
-    $mod+6 workspace $ws6
-    $mod+7 workspace $ws7
-    $mod+8 workspace $ws8
-    $mod+9 workspace $ws9
-    $mod+0 workspace $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-    $mod+Shift+1 move container to workspace $ws1
-    $mod+Shift+2 move container to workspace $ws2
-    $mod+Shift+3 move container to workspace $ws3
-    $mod+Shift+4 move container to workspace $ws4
-    $mod+Shift+5 move container to workspace $ws5
-    $mod+Shift+6 move container to workspace $ws6
-    $mod+Shift+7 move container to workspace $ws7
-    $mod+Shift+8 move container to workspace $ws8
-    $mod+Shift+9 move container to workspace $ws9
-    $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
-    $mod+r mode "resize"
-    $mod+Shift+g mode "$mode_gaps"
-}
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "resize" {
-        bindsym {
-            h resize shrink width 5 px or 5 ppt
-            j resize grow height 5 px or 5 ppt
-            k resize shrink height 5 px or 5 ppt
-            l resize grow width 5 px or 5 ppt
+           bindsym h resize shrink width 5 px or 5 ppt
+           bindsym j resize grow height 5 px or 5 ppt
+           bindsym k resize shrink height 5 px or 5 ppt
+           bindsym l resize grow width 5 px or 5 ppt
 
-            Escape mode "default"
-        }
+           bindsym Escape mode "default"
 }
 
 mode "$mode_gaps" {
-        bindsym {
-            o      mode "$mode_gaps_outer"
-            i      mode "$mode_gaps_inner"
+          bindsym o      mode "$mode_gaps_outer"
+          bindsym i      mode "$mode_gaps_inner"
 
-            Escape mode "default"
-        }
+          bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym {
-            plus  gaps inner current plus 2
-            minus gaps inner current minus 2
-            0     gaps inner current set 0
-            d mode "default", gaps inner current set $default_gaps_inner
+          bindsym plus  gaps inner current plus 2
+          bindsym minus gaps inner current minus 2
+          bindsym 0     gaps inner current set 0
+          bindsym d     mode "default", gaps inner current set $default_gaps_inner
 
-            Shift+plus  gaps inner all plus 2
-            Shift+minus gaps inner all minus 2
-            Shift+0     gaps inner all set 0
-            Shift+d mode "default", gaps inner all set $default_gaps_inner
+          bindsym Shift+plus  gaps inner all plus 2
+          bindsym Shift+minus gaps inner all minus 2
+          bindsym Shift+0     gaps inner all set 0
+          bindsym Shift+d mode "default", gaps inner all set $default_gaps_inner
 
-            Escape mode "default"
-        }
+          bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym {
-            plus  gaps outer current plus 2
-            minus gaps outer current minus 2
-            0     gaps outer current set 0
-            d mode "default", gaps outer current set $default_gaps_outer
+          bindsym plus  gaps outer current plus 2
+          bindsym minus gaps outer current minus 2
+          bindsym 0     gaps outer current set 0
+          bindsym d     mode "default", gaps outer current set $default_gaps_outer
 
-            Shift+plus  gaps outer all plus 2
-            Shift+minus gaps outer all minus 2
-            Shift+0     gaps outer all set 0
-            Shift+d mode "default", gaps outer all set $default_gaps_outer
+          bindsym Shift+plus  gaps outer all plus 2
+          bindsym Shift+minus gaps outer all minus 2
+          bindsym Shift+0     gaps outer all set 0
+          bindsym Shift+d mode "default", gaps outer all set $default_gaps_outer
 
-            Escape mode "default"
-        }
+          bindsym Escape mode "default"
 }
 
 # window colors
 #                       border              background         text                 indicator   child_border
-client.focused          $bg-color           $bg-color          $text-color          #00ff00     #900000
+client.focused          $bg-color           $bg-color          $text-color          #00ff00     #8E88B7
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00     $urgent-bg-color
 
 bar {
-    status_command i3status
+    status_command /usr/bin/i3status
     position top
     strip_workspace_numbers yes
     colors {
@@ -220,48 +212,42 @@ bar {
     }
 }
 
-for_window {
-    [class="Dconf-editor"] floating enable
-    [class="Desmume"] floating enable
-    [class="File-roller"] floating enable
-    [class="Firefox" window_role="About"] floating enable
-    [class="Gnome-calculator"] floating enable
-    [class="Gnome-disks"] floating enable
-    [class="Gpa"] floating enable
-    [class="Guvcview"] floating enable
-    [class="keepass"] floating enable
-    [class="Klavaro"] floating enable
-    [class="Lxappearance"] floating enable
-    [class="Main.tcl"] floating enable
-    [class="mpv"] floating enable
-    [class="(?i)nm-connection-editor"] floating enable
-    [class="Pavucontrol"] floating enable
-    [class="pcsxr"] floating enable
-    [class="QEMU"] floating enable
-    [class="retroarch"] floating enable
-    [class="scummvm"] floating enable
-    [class="Snes9x-gtk"] floating enable
-    [class="Transmission-gtk"] floating enable
-    [class="Virt-manager"] floating enable
+for_window [class="Dconf-editor"] floating enable
+for_window [class="Desmume"] floating enable
+for_window [class="File-roller"] floating enable
+for_window [class="Firefox" window_role="About"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gnome-disks"] floating enable
+for_window [class="Gpa"] floating enable
+for_window [class="Guvcview"] floating enable
+for_window [class="keepass"] floating enable
+for_window [class="Klavaro"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Main.tcl"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="(?i)nm-connection-editor"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="pcsxr"] floating enable
+for_window [class="QEMU"] floating enable
+for_window [class="retroarch"] floating enable
+for_window [class="scummvm"] floating enable
+for_window [class="Snes9x-gtk"] floating enable
+for_window [class="Transmission-gtk"] floating enable
+for_window [class="Virt-manager"] floating enable
 
-    [window_role="pop-up"] floating enable
-    [window_role="task_dialog"] floating enable
-    [window_role="bubble"] floating enable
-    [window_role="Preferences"] floating enable
-    [window_type="dialog"] floating enable
-    [window_type="menu"] floating enable
-    [title="Page Info"] floating enable
-}
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [title="Page Info"] floating enable
 
-assign {
-    [class="Geany"] $ws2
-    [class="Chromium"] $ws5
-}
+assign [class="Geany"] $ws2
+assign [class="Chromium"] $ws5
 
-exec {
-    --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-    exec --no-startup-id compton
-    exec --no-startup-id dunst &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id /usr/bin/compton &
+exec --no-startup-id /usb/bin/dunst &
 #   exec --no-startup-id nm-applet &
 #   exec xset s off -dpms
-}
