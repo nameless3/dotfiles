@@ -38,17 +38,17 @@ gaps outer $default_gaps_outer
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-#output * bg ~/Pictures/bg/bladerunner2049-1.png fill
+#output * bg ~/pictures/bg/bladerunner2049-1.png fill
 
 bindsym {
-    $mod+Return exec $term -e /usr/bin/zsh
+    $mod+Return exec $term -e /usr/bin/fish
     $mod+q kill
 
     $mod+d exec "rofi -show drun"
-    $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsh exec
-    $mod+Pause exec swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill
+    $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
+    $mod+Pause exec swaylock -i ~/pictures/bg/bladerunner2049-1.png --scaling fill
     Print exec grim ~/Pictures/$(date +"%F-%T").png
-    --release Shift+Print exec grim -g "$(slurp)" ~/Pictures/$(date "+%F-%T").png
+    --release Shift+Print exec grim -g "$(slurp)" ~/pictures/$(date "+%F-%T").png
 #    --release Shift+Print exec import ~/Pictures/$(date "+%F-%T").png
 #    Shift+Print exec gnome-screenshot -i
 
@@ -89,10 +89,10 @@ bindsym {
 
 #    $mod+b
 #    $mod+Shift+b
-    $mod+c exec $term -e cmus
+    $mod+c exec $term -e /usr/bin/cmus
 #    $mod+Shift+d
 #    $mod+Shift+f
-    $mod+g exec geany
+    $mod+g exec /usr/bin/geany
 #    $mod+i
 #    $mod+Shift+i
 #    $mod+m
@@ -102,19 +102,19 @@ bindsym {
     $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #    $mod+Shift+p
 #    $mod+Shift+t
-    $mod+u exec pavucontrol-qt
+    $mod+u exec /usr/bin/pavucontrol-qt
 #    $mod+Shift+u
-    $mod+v exec tkpacman
+    $mod+v exec /usr/bin/tkpacman
 #    $mod+Shift+v
 #    $mod+x
 #    $mod+Shift+x
-    $mod+y exec $term -e pulsemixer
+    $mod+y exec $term -e /usr/bin/pulsemixer
 #    $mod+Shift+y
 #    $mod+Shift+z
     $mod+odiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     $mod+adiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     $mod+aring exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    
+
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -203,13 +203,13 @@ mode "$mode_gaps_outer" {
 
 # window colors
 #                       border              background         text                 indicator   child_border
-client.focused          $bg-color           $bg-color          $text-color          #00ff00     #900000
+client.focused          $bg-color           $bg-color          $text-color          #00ff00     #8E88B7
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00     $urgent-bg-color
 
 bar {
-    status_command i3status
+    status_command /usr/bin/i3status
     position top
     strip_workspace_numbers yes
     colors {
@@ -225,11 +225,10 @@ bar {
 
 input * {
     xkb_layout se
-    xkb_variant ,nodeadkeys
     xkb_options caps:swapescape,terminate:ctrl_alt_bksp
     xkb_numlock enabled
-    repeat_delay 200
-    repeat_rate 40
+    repeat_delay 300
+    repeat_rate 60
 }
 
 for_window {
@@ -254,7 +253,7 @@ for_window {
     [app_id="snes9x"] floating enable
     [app_id="transmission-gtk"] floating enable
     [app_id="virt-manager"] floating enable
-    
+
     [window_role="pop-up"] floating enable
     [window_role="task_dialog"] floating enable
     [window_role="bubble"] floating enable
@@ -270,11 +269,11 @@ assign {
 }
 
 exec {
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-    mako &
+#    systemctl --user import-environment
+#    systemctl --user start sway-session.target
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+    /usr/bin/mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
-#    swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
-#    swayidle timeout 300000 'swaylock -i ~/Pictures/bg/bladerunner2049-1.png --scaling fill' timeout 300000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 }
 
 include @sysconfdir@/sway/config.d/*
