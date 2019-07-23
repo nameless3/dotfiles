@@ -243,11 +243,10 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [title="Page Info"] floating enable
 
-assign [class="Geany"] $ws2
 assign [class="Chromium"] $ws5
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/bin/compton &
-exec --no-startup-id /usb/bin/dunst &
+exec --no-startup-id /usr/bin/dunst &
 #   exec --no-startup-id nm-applet &
 #   exec xset s off -dpms
