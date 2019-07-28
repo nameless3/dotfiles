@@ -26,7 +26,7 @@ set $mode_gaps gaps: (o)uter, (i)nner
 #set $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
 #set $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
 
-font pango:xos4 Terminus 8
+font pango:VecTerminus12, xos4 Terminus 9
 
 floating_modifier $mod
 
