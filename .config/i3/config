@@ -39,12 +39,12 @@ default_border pixel 2
 bindsym $mod+Return exec $term -e /usr/bin/fish
 bindsym $mod+q kill
 
-#   $mod+d exec --no-startup-id i3-dmenu-desktop
+#$mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec "rofi -show drun"
 bindsym $mod+Pause exec i3lock --image=/home/$USER/pictures/bg/bladerunner2049-1.png
 bindsym Print exec import -window root ~/pictures/$(date '+%F-%T').png
 bindsym --release Shift+Print exec import ~/pictures/$(date '+%F-%T').png
-#   Shift+Print exec --no-startup-id gnome-screenshot -i
+#Shift+Print exec --no-startup-id gnome-screenshot -i
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -81,41 +81,39 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#   $mod+b
-#   $mod+Shift+b
+#$mod+b
+#$mod+Shift+b
 bindsym $mod+c exec $term -e /usr/bin/cmus
-#   $mod+Shift+d
-#   $mod+Shift+f
+#$mod+Shift+d
+#$mod+Shift+f
 bindsym $mod+g exec /usr/bin/geany
-#   $mod+i
-#   $mod+Shift+i
-#   $mod+m
-#   $mod+Shift+m
-#   $mod+Shift+n
+#$mod+i
+#$mod+Shift+i
+#$mod+m
+#$mod+Shift+m
+#$mod+Shift+n
 bindsym $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
 bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
-#   $mod+Shift+p
-#   $mod+Shift+t
+#$mod+Shift+p
+#$mod+Shift+t
 bindsym $mod+u exec /usr/bin/pavucontrol-qt
-#   $mod+Shift+u
+#$mod+Shift+u
 bindsym $mod+v exec /usr/bin/tkpacman
-#   $mod+Shift+v
-#   $mod+x
-#   $mod+Shift+x
+#$mod+Shift+v
+#$mod+x
+#$mod+Shift+x
 bindsym $mod+y exec $term -e /usr/bin/pulsemixer
-#   $mod+Shift+y
-#   $mod+Shift+z
+#$mod+Shift+y
+#$mod+Shift+z
 
-bindsym $mod+odiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+adiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod+aring exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+odiaeresis exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+adiaeresis exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+aring exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-#   XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks
-#   XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
-#   XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+
 bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
 bindsym XF86AudioPause exec --no-startup-id cmus-remote --pause
 bindsym XF86AudioStop exec --no-startup-id cmus-remote --stop
@@ -246,7 +244,9 @@ for_window [title="Page Info"] floating enable
 assign [class="Chromium"] $ws5
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id /usr/bin/compton &
+#exec --no-startup-id /usr/bin/compton &
 exec --no-startup-id /usr/bin/dunst &
-#   exec --no-startup-id nm-applet &
-#   exec xset s off -dpms
+exec --no-startup-id pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
+exec --no-startup-id pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
+#exec --no-startup-id nm-applet &
+#exec xset s off -dpms
