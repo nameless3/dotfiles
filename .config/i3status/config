@@ -1,5 +1,4 @@
 # i3status configuration file.
-# see "man i3status" for documentation.
 
 # It is important that this file is edited as UTF-8.
 # The following line should contain a sharp s:
@@ -11,7 +10,6 @@ general {
     interval = 2
 }
 
-#order += "ethernet _first_"
 order += "disk /"
 order += "disk /home"
 order += "memory"
@@ -20,22 +18,22 @@ order += "cpu_temperature 0"
 order += "cpu_temperature 1"
 order += "cpu_temperature 2"
 order += "cpu_temperature 3"
+#order += "read_file temp1_input"
 order += "tztime local"
 order += "volume master"
 
-tztime local {
-    format = "  %a, %e %b  %R"
+disk "/" {
+    format = " %used"
 }
 
-#ethernet _first_ {
-#        format_up = "           %ip (%speed)"
-#        format_down = "  down"
-#}
+disk "/home" {
+    format = " %used"
+}
 
 memory {
-    format = "  %used"
-    threshold_degraded = "1G"
-    format_degraded = "MEMORY < %available"
+    format = " %used"
+    threshold_degraded = "10%"
+    format_degraded = "··< %available"
 }
 
 cpu_usage {
@@ -71,12 +69,13 @@ cpu_temperature 3 {
 #   path = "/sys/class/hwmon/hwmon*/temp5_input"
 }
 
-disk "/" {
-    format = " %used"
+read_file temp1_input {
+    format = "GPU %content°"
+    path = "/sys/class/drm/card0/device//hwmon//hwmon1/temp1_input"
 }
 
-disk "/home" {
-    format = " %used"
+tztime local {
+    format = " %a, %e %b  %R"
 }
 
 volume master {
