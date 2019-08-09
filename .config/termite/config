@@ -1,6 +1,5 @@
 [options]
-#    font = Terminus (TTF) 12
-    font = VecTerminus12 9
+    font = Terminus 9
     audible_bell = true
     allow_bold = true
     scrollback_lines = 10000
