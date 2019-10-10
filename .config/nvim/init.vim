@@ -23,6 +23,7 @@ set breakindent
 "set showbreak=\\\\\
 let &showbreak='↳ '
 set listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,space:·
+set clipboard+=unnamedplus
 
 set tabstop=4
 set softtabstop=4
@@ -105,5 +106,5 @@ if !exists(":DiffOrig")
           \ | wincmd p | diffthis
 endif
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview 
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview 
