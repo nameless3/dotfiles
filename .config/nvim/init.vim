@@ -1,16 +1,16 @@
-" set rtp^=/usr/share/vim/vimfiles/
+"set rtp^=/usr/share/vim/vimfiles/
 
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let NERDTreeNaturalSort=1
 map <C-n> :NERDTreeToggle<CR>
 
-"let mapleader=<\SPACE>
+"let mapleader="\<SPACE>"
 colorscheme gruvbox
 set number
 set relativenumber
@@ -22,7 +22,7 @@ set linebreak
 set breakindent
 "set showbreak=\\\\\
 let &showbreak='↳ '
-set listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:→\ ,trail:~,extends:⟩,precedes:⟨,space:·
 set clipboard+=unnamedplus
 
 set tabstop=4
@@ -37,7 +37,8 @@ set smartcase
 
 set noshelltemp
 set secure
-" set noswapfile
+set nomodeline
+"set noswapfile
 
 set splitright
 set splitbelow
@@ -48,7 +49,7 @@ set ttimeoutlen=100
 
 set scrolloff=5
 set mouse=a
-" set nrformats-=octal
+"set nrformats-=octal
 
 map <F5> :bp<CR>
 map <F6> :bn<CR>
@@ -107,4 +108,4 @@ if !exists(":DiffOrig")
 endif
 
 "autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview 
+"autocmd BufWinEnter *.* silent loadview
