@@ -242,7 +242,7 @@ for_window {
     [app_id="gnome-disks"] floating enable
     [class="Gpa"] floating enable
     [app_id="guvcview"] floating enable
-    [class="keepass"] floating enable
+    [class="keepassxc"] floating enable
     [app_id="klavaro"] floating enable
     [app_id="lxappearance"] floating enable
     [class="Main.tcl"] floating enable
