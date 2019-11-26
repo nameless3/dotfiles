@@ -218,7 +218,7 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gnome-disks"] floating enable
 for_window [class="Gpa"] floating enable
 for_window [class="Guvcview"] floating enable
-for_window [class="keepass"] floating enable
+for_window [class="keepassxc"] floating enable
 for_window [class="Klavaro"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Main.tcl"] floating enable
@@ -244,7 +244,7 @@ for_window [title="Page Info"] floating enable
 assign [class="Chromium"] $ws5
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#exec --no-startup-id /usr/bin/compton &
+#exec --no-startup-id /usr/bin/picom &
 exec --no-startup-id /usr/bin/dunst &
 exec --no-startup-id pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
 exec --no-startup-id pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
