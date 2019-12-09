@@ -18,7 +18,7 @@ order += "cpu_temperature 0"
 order += "cpu_temperature 1"
 order += "cpu_temperature 2"
 order += "cpu_temperature 3"
-#order += "read_file temp1_input"
+order += "read_file temp1_input"
 order += "tztime local"
 order += "volume master"
 
@@ -37,41 +37,46 @@ memory {
 }
 
 cpu_usage {
-    format = " %cpu0 %cpu1 %cpu2 %cpu3"
+    format = " %cpu0 %cpu1 %cpu2 %cpu3 %cpu4 %cpu5 %cpu6 %cpu7"
     degraded_threshold = "30"
 }
 
 cpu_temperature 0 {
-    format = " %degrees°"
+    format = " CPU: %degrees°"
     max_threshold = "75"
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input"
+    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp1_input
+#    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input"
 #   path = "/sys/class/hwmon/hwmon*/temp2_input"
+# sensors | awk '/Tdie/{ print $2 }' | tr -d +
 }
 
 cpu_temperature 1 {
-    format = "%degrees°"
+    format = "Socket: %degrees°"
     max_threshold = "75"
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input"
+    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp2_input
+#    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input"
 #   path = "/sys/class/hwmon/hwmon*/temp3_input"
 }
 
 cpu_temperature 2 {
-    format = "%degrees°"
+    format = "Mobo: %degrees°"
     max_threshold = "75"
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp4_input"
+    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp3_input
+#    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp4_input"
 #   path = "/sys/class/hwmon/hwmon*/temp4_input"
 }
 
 cpu_temperature 3 {
-    format = "%degrees°"
+    format = "Chipset: %degrees°"
     max_threshold = "75"
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp5_input"
+    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp4_input
+#    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp5_input"
 #   path = "/sys/class/hwmon/hwmon*/temp5_input"
 }
 
 read_file temp1_input {
-    format = "GPU %content°"
-    path = "/sys/class/drm/card0/device//hwmon//hwmon1/temp1_input"
+    format = "GPU: %content°"
+    path = "/sys/class/drm/card0/device//hwmon//hwmon3/temp1_input"
 }
 
 tztime local {
