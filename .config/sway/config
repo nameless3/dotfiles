@@ -15,12 +15,12 @@ set {
     $ws9 "9:IX"
     $ws10 "10:X"
 
-    $bg-color            #13191C
-    $inactive-bg-color   #13191C
-    $text-color          #8EC07C
+    $bg-color            #13191c
+    $inactive-bg-color   #13191c
+    $text-color          #8ec07c
     $inactive-text-color #928374
     $urgent-bg-color     #900000
-    $ind-color           #00FF00
+    $ind-color           #00ff00
 
     $default_gaps_inner 8
     $default_gaps_outer 3
@@ -205,7 +205,7 @@ mode "$mode_gaps_outer" {
 
 # window colors
 #                       border              background         text                 indicator   child_border
-client.focused          $bg-color           $bg-color          $text-color          $ind-color  #8E88B7
+client.focused          $bg-color           $bg-color          $text-color          $ind-color  #8e88b7
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $ind-color  $inactive-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $ind-color  $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $ind-color  $urgent-bg-color
@@ -217,7 +217,7 @@ bar {
     colors {
         background          $bg-color
         statusline          #c5c8c6
-        separator           #00ff00
+        separator           #8e88b7
         #                   border              background          text
         focused_workspace   $bg-color           $bg-color           $text-color
         inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
@@ -242,7 +242,7 @@ for_window {
     [app_id="gnome-disks"] floating enable
     [class="Gpa"] floating enable
     [app_id="guvcview"] floating enable
-    [class="keepassxc"] floating enable
+    [class="KeePassXC"] floating enable
     [app_id="klavaro"] floating enable
     [app_id="lxappearance"] floating enable
     [class="Main.tcl"] floating enable
