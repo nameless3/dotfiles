@@ -19,6 +19,7 @@ set $inactive-bg-color   #13191C
 set $text-color          #8EC07C
 set $inactive-text-color #928374
 set $urgent-bg-color     #900000
+set $ind-color           #00ff00
 
 set $default_gaps_inner 8
 set $default_gaps_outer 3
@@ -190,10 +191,10 @@ mode "$mode_gaps_outer" {
 
 # window colors
 #                       border              background         text                 indicator   child_border
-client.focused          $bg-color           $bg-color          $text-color          #00ff00     #8E88B7
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00     $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00     $urgent-bg-color
+client.focused          $bg-color           $bg-color          $text-color          $ind-color  #8e88b7
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $ind-color  $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $ind-color  $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $ind-color  $urgent-bg-color
 
 bar {
     status_command /usr/bin/i3status
@@ -202,7 +203,7 @@ bar {
     colors {
         background          $bg-color
         statusline          #c5c8c6
-        separator           #00ff00
+        separator           #8e88b7
         #                   border              background          text
         focused_workspace   $bg-color           $bg-color           $text-color
         inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
@@ -218,7 +219,7 @@ for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gnome-disks"] floating enable
 for_window [class="Gpa"] floating enable
 for_window [class="Guvcview"] floating enable
-for_window [class="keepassxc"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [class="Klavaro"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Main.tcl"] floating enable
