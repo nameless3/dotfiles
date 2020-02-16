@@ -5,7 +5,7 @@ confirm-exit yes
 download-retries 3
 datetime-format "%d %b, %H:%M"
 mark-as-read-on-hover yes
-max-items 100
+max-items 1000
 reload-time 240
 reload-threads 5
 notify-beep yes
@@ -16,8 +16,14 @@ bind-key h quit
 bind-key j down
 bind-key k up
 bind-key l open
+unbind-key g # bound to `sort` by default
+bind-key g home
+unbind-key G # bound to `rev-sort` by default
+bind-key G end
+bind-key s sort
+bind-key S rev-sort
 
-#highlight	<target> <regex> <fgcolor> [<bgcolor> [<attribute> ...]]
+#highlight  <target> <regex> <fgcolor> [<bgcolor> [<attribute> ...]]
 highlight   article     "^(Feed|Title|Author|Link|Date|Links):" color0 color4
 
 #color  <element>               <fgcolor>   <bgcolor>   [<attr> ...]
