@@ -46,40 +46,41 @@ cpu_usage {
 cpu_temperature 0 {
     format = " CPU: %degrees°"
     max_threshold = "75"
-    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp1_input
+    path = "/sys/devices/platform/asus-wmi-sensors/hwmon/hwmon1/temp1_input"
 #    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input"
-#    path = "/sys/class/hwmon/hwmon*/temp2_input"
+    path = "/sys/class/hwmon/hwmon*/temp2_input"
 #    sensors | awk '/Tdie/{ print $2 }' | tr -d +
 }
 
 cpu_temperature 1 {
     format = "Socket: %degrees°"
     max_threshold = "75"
-    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp2_input
+    path = "/sys/devices/platform/asus-wmi-sensors/hwmon/hwmon1/temp2_input"
 #    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input"
-#    path = "/sys/class/hwmon/hwmon*/temp3_input"
+    path = "/sys/class/hwmon/hwmon*/temp3_input"
 }
 
 cpu_temperature 2 {
     format = "Mobo: %degrees°"
     max_threshold = "75"
-    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp3_input
+    path = "/sys/devices/platform/asus-wmi-sensors/hwmon/hwmon1/temp3_input"
 #    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp4_input"
-#    path = "/sys/class/hwmon/hwmon*/temp4_input"
+    path = "/sys/class/hwmon/hwmon*/temp4_input"
 }
 
 cpu_temperature 3 {
-    format = "Chip: %degrees°"
+    format = "Chipset: %degrees°"
     max_threshold = "75"
     separator_block_width = "30"
-    path = /sys/devices/platform/asus-wmi-sensors/hwmon/hwmon0/temp4_input
+    path = "/sys/devices/platform/asus-wmi-sensors/hwmon/hwmon1/temp4_input"
 #    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp5_input"
-#    path = "/sys/class/hwmon/hwmon*/temp5_input"
+    path = "/sys/class/hwmon/hwmon*/temp5_input"
 }
 
 read_file temp1_input {
     format = "GPU: %content°"
-    path = "/sys/class/drm/card0/device//hwmon//hwmon3/temp1_input"
+    path = "/sys/class/drm/card0/device/hwmon//hwmon4/temp1_input"
+    path = "/sys/class/drm/card0/device/hwmon//hwmon3/temp1_input"
     Max_characters = "2"
     separator_block_width = "30"
 }
