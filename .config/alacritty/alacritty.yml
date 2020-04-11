@@ -18,8 +18,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 2
-    y: 2
+    x: 1
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -51,21 +51,6 @@ scrolling:
 
 # Font configuration
 #
-# Important font attributes like antialiasing, subpixel aa, and hinting can be
-# controlled through fontconfig. Specifically, the following attributes should
-# have an effect:
-#   - hintstyle
-#   - antialias
-#   - lcdfilter
-#   - rgba
-#
-# For instance, if you wish to disable subpixel antialiasing, you might set the
-# rgba property to `none`. If you wish to completely disable antialiasing, you
-# can set antialias to `false`.
-#
-# Please see these resources for more information on how to use fontconfig:
-#   - https://wiki.archlinux.org/index.php/font_configuration#Fontconfig_configuration
-#   - file:///usr/share/doc/fontconfig/fontconfig-user.html
 font:
   # Normal (roman) font face
   normal:
@@ -125,7 +110,7 @@ colors:
     background: '#282828'
     # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
-    bright_foreground: '#ebdbb2'
+    bright_foreground: '#FFFFFF'
 
   # Normal colors
   normal:
@@ -370,22 +355,22 @@ mouse_bindings:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
-key_bindings:
-  # (Windows, Linux, and BSD only)
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+#key_bindings:
+#  # (Windows, Linux, and BSD only)
+#  - { key: V,        mods: Control|Shift, action: Paste            }
+#  - { key: C,        mods: Control|Shift, action: Copy             }
+#  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+#  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+#  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+#  - { key: Add,      mods: Control,       action: IncreaseFontSize }
+#  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+#  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
-  - { key: Paste,                    action: Paste                            }
-  - { key: Copy,                     action: Copy                             }
-  - { key: L,         mods: Control, action: ClearLogNotice                   }
-  - { key: L,         mods: Control, chars: "\x0c"                            }
-  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+#  - { key: Paste,                    action: Paste                            }
+#  - { key: Copy,                     action: Copy                             }
+#  - { key: L,         mods: Control, action: ClearLogNotice                   }
+#  - { key: L,         mods: Control, chars: "\x0c"                            }
+#  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+#  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+#  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+#  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
