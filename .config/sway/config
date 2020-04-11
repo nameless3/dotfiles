@@ -2,7 +2,7 @@
 
 set {
     $mod Mod4
-    $term termite
+    $term alacritty
 
     $ws1 "1:I"
     $ws2 "2:II"
@@ -39,7 +39,7 @@ gaps outer $default_gaps_outer
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-#output * bg ~/pictures/bg/bladerunner2049-1.png fill
+#output * bg ~/img/bg/bladerunner2049-1.png fill
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/fish
@@ -47,11 +47,11 @@ bindsym {
 
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
-#    bindsym $mod+r exec termite --name=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-    $mod+Pause exec /usr/bin/swaylock -i ~/pictures/bg/bladerunner2049-1.png --scaling fill
-    Print exec /usr/bin/grim ~/pictures/$(date +"%F-%T").png
-    --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/pictures/$(date "+%F-%T").png
-#    --release Shift+Print exec import ~/Pictures/$(date "+%F-%T").png
+    $mod+r exec alarcritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/gits_city2.png --scaling fill
+    Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
+    --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
+#    --release Shift+Print exec import ~/img/$(date "+%F-%T").png
 #    Shift+Print exec gnome-screenshot -i
 
     $mod+h focus left
@@ -87,7 +87,7 @@ bindsym {
 
     $mod+Shift+c reload
     $mod+Shift+r restart
-    $mod+Shift+e exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -b 'Yes, exit sway' 'swaymsg exit'
 
 #    $mod+b
 #    $mod+Shift+b
@@ -246,7 +246,7 @@ for_window {
     [app_id="klavaro"] floating enable
     [app_id="lxappearance"] floating enable
     [class="Main.tcl"] floating enable
-    [class="mpv"] floating enable
+    [class="mpv" app_id="mpv"] floating enable
     [class="(?i)nm-connection-editor"] floating enable
     [class="Pavucontrol"] floating enable
     [class="pcsxr"] floating enable
@@ -264,6 +264,7 @@ for_window {
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
     [title="Page Info"] floating enable
+    [title="(?i)jitsi meet - mozilla firefox" class="firefox" app_id="firefox"] floating enable; resize set 450 295; move absolute position center
 }
 
 assign {
@@ -276,6 +277,8 @@ exec {
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+    pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
+    pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
 }
 
 include @sysconfdir@/sway/config.d/*
