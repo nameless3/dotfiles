@@ -47,7 +47,7 @@ bindsym {
 
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
-    $mod+r exec alarcritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
     $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/gits_city2.png --scaling fill
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
