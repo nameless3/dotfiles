@@ -1,4 +1,5 @@
 auto-reload yes
+article-sort-order date-asc
 suppress-first-reload yes
 browser firefox
 confirm-exit yes
@@ -11,6 +12,7 @@ reload-threads 5
 notify-beep yes
 
 macro y set browser "i3 exec mpv"; open-in-browser ; set browser "firefox"
+macro m set browser "swaymsg exec mpv"; open-in-browser ; set browser "firefox"
 
 bind-key h quit
 bind-key j down
@@ -20,6 +22,7 @@ unbind-key g # bound to `sort` by default
 bind-key g home
 unbind-key G # bound to `rev-sort` by default
 bind-key G end
+unbind-key s # bound to 'save' by default
 bind-key s sort
 bind-key S rev-sort
 
