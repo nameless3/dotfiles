@@ -234,27 +234,27 @@ input * {
 }
 
 for_window {
-    [app_id="dconf-editor"] floating enable
-    [class="Desmume"] floating enable
-    [app_id="file-roller"] floating enable
-    [class="Firefox" window_role="About"] floating enable
-    [app_id="gnome-calculator"] floating enable
-    [app_id="gnome-disks"] floating enable
-    [class="Gpa"] floating enable
-    [app_id="guvcview"] floating enable
-    [class="KeePassXC"] floating enable
-    [app_id="klavaro"] floating enable
-    [app_id="lxappearance"] floating enable
-    [class="Main.tcl"] floating enable
-    [class="mpv" app_id="mpv"] floating enable
+    [app_id="(?i)dconf-editor"] floating enable
+    [class="(?i)desmume"] floating enable
+    [app_id="(?i)file-roller"] floating enable
+    [class="(?i)firefox" window_role="(?i)about"] floating enable
+    [app_id="(?i)gnome-calculator"] floating enable
+    [app_id="(?i)gnome-disks"] floating enable
+    [class="(?i)gpa"] floating enable
+    [app_id="(?i)guvcview"] floating enable
+    [class="(?i)peepassxc"] floating enable
+    [app_id="(?i)klavaro"] floating enable
+    [app_id="(?i)lxappearance"] floating enable
+    [class="(?i)main.tcl"] floating enable
+    [app_id="(?i)mpv"] floating enable
     [class="(?i)nm-connection-editor"] floating enable
-    [class="Pavucontrol"] floating enable
-    [class="pcsxr"] floating enable
-    [class="retroarch"] floating enable
-    [class="scummvm"] floating enable
-    [app_id="snes9x"] floating enable
-    [app_id="transmission-gtk"] floating enable
-    [app_id="virt-manager"] floating enable
+    [class="(?i)pavucontrol"] floating enable
+    [class="(?i)pcsxr"] floating enable
+    [class="(?i)retroarch"] floating enable
+    [class="(?i)scummvm"] floating enable
+    [app_id="(?i)snes9x"] floating enable
+    [app_id="(?i)transmission-gtk"] floating enable
+    [app_id="(?i)virt-manager"] floating enable
     [app_id="^launcher$"] floating enable, border pixel
 
     [window_role="pop-up"] floating enable
@@ -263,17 +263,18 @@ for_window {
     [window_role="Preferences"] floating enable
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
-    [title="Page Info"] floating enable
-    [title="(?i)jitsi meet - mozilla firefox" class="firefox" app_id="firefox"] floating enable; resize set 450 295; move absolute position center
+    [title="(?i)page info"] floating enable
+    [title="(?i)jitsi meet"] floating enable; resize set 450 295; move absolute position center
 }
 
 assign {
-    [class="Chromium"] $ws5
+    [class="(?i)chromium"] $ws5
 }
 
 exec {
 #    systemctl --user import-environment
 #    systemctl --user start sway-session.target
+#    dbus-update-activation-environment --systemd --all
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
@@ -281,4 +282,5 @@ exec {
     pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
 }
 
+#xwayland disable
 include @sysconfdir@/sway/config.d/*
