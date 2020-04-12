@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:ft=conf
 
 set $mod Mod4
-set $term termite
+set $term alacritty
 
 set $ws1 "1:I"
 set $ws2 "2:II"
@@ -42,9 +42,9 @@ bindsym $mod+q kill
 
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec "rofi -show drun"
-bindsym $mod+Pause exec i3lock --image=/home/$USER/pictures/bg/pixel-art1.png
-bindsym Print exec import -window root ~/pictures/$(date '+%F-%T').png
-bindsym --release Shift+Print exec import ~/pictures/$(date '+%F-%T').png
+bindsym $mod+Pause exec i3lock --image=/home/$USER/img/bg/gits_city2.png
+bindsym Print exec import -window root ~/img/$(date '+%F-%T').png
+bindsym --release Shift+Print exec import ~/img/$(date '+%F-%T').png
 #bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
 
 bindsym $mod+h focus left
@@ -211,28 +211,28 @@ bar {
     }
 }
 
-for_window [class="Dconf-editor"] floating enable
-for_window [class="Desmume"] floating enable
-for_window [class="File-roller"] floating enable
-for_window [class="Firefox" window_role="About"] floating enable
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Gnome-disks"] floating enable
-for_window [class="Gpa"] floating enable
-for_window [class="Guvcview"] floating enable
-for_window [class="KeePassXC"] floating enable
-for_window [class="Klavaro"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Main.tcl"] floating enable
-for_window [class="mpv"] floating enable
+for_window [class="(?i)dconf-editor"] floating enable
+for_window [class="(?i)desmume"] floating enable
+for_window [class="(?i)file-roller"] floating enable
+for_window [class="(?i)firefox" window_role="(?i)about"] floating enable
+for_window [class="(?i)gnome-calculator"] floating enable
+for_window [class="(?i)gnome-disks"] floating enable
+for_window [class="(?i)gpa"] floating enable
+for_window [class="(?i)guvcview"] floating enable
+for_window [class="(?i)keepassxc"] floating enable
+for_window [class="(?i)klavaro"] floating enable
+for_window [class="(?i)lxappearance"] floating enable
+for_window [class="(?i)main.tcl"] floating enable
+for_window [class="(?i)mpv"] floating enable
 for_window [class="(?i)nm-connection-editor"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="pcsxr"] floating enable
-for_window [class="QEMU"] floating enable
-for_window [class="retroarch"] floating enable
-for_window [class="scummvm"] floating enable
-for_window [class="Snes9x-gtk"] floating enable
-for_window [class="Transmission-gtk"] floating enable
-for_window [class="Virt-manager"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="(?i)pcsxr"] floating enable
+for_window [class="(?i)qemu"] floating enable
+for_window [class="(?i)retroarch"] floating enable
+for_window [class="(?i)scummvm"] floating enable
+for_window [class="(?i)snes9x-gtk"] floating enable
+for_window [class="(?i)transmission-gtk"] floating enable
+for_window [class="(?i)virt-manager"] floating enable
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -240,9 +240,10 @@ for_window [window_role="bubble"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [title="Page Info"] floating enable
+for_window [title="(?i)page info"] floating enable
+for_window [title="(?i)jitsi meet"] floating enable; resize set 450 295; move absolute position center
 
-assign [class="Chromium"] $ws5
+assign [class="(?i)chromium"] $ws5
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #exec --no-startup-id /usr/bin/picom &
