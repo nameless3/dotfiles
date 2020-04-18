@@ -3,6 +3,7 @@
 set {
     $mod Mod4
     $term alacritty
+    $sys "[e]xit · [r]eload · [R]eboot · [p]oweroff"
 
     $ws1 "1:I"
     $ws2 "2:II"
@@ -29,17 +30,17 @@ set {
     $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
 }
 
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
 font pango:Terminus 9
 
 floating_modifier $mod normal
 
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
-
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-#output * bg ~/img/bg/bladerunner2049-1.png fill
+#output * bg ~/img/bg/gits_city2.png fill
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/fish
@@ -47,13 +48,14 @@ bindsym {
 
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
-    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+#    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
     $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/gits_city2.png --scaling fill
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
-#    --release Shift+Print exec import ~/img/$(date "+%F-%T").png
-#    Shift+Print exec gnome-screenshot -i
 
+    $mod+a focus parent
+    $mod+Shift+a focus child
+    $mod+g focus mode_toggle
     $mod+h focus left
     $mod+j focus down
     $mod+k focus up
@@ -67,41 +69,35 @@ bindsym {
     $mod+n workspace next
     $mod+p workspace prev
 
+    $mod+b border toggle
     $mod+f fullscreen toggle
     $mod+Shift+s sticky toggle
-    $mod+z border toggle
+    $mod+space floating toggle
 
-    $mod+s layout stacking
-    $mod+w layout tabbed
-    $mod+e layout toggle split
+    $mod+s layout toggle stacking tabbed split
+#    $mod+w
+#    $mod+e layout toggle split
     $mod+t split toggle
-
-    $mod+Shift+space floating toggle
-    $mod+g focus mode_toggle
-
-    $mod+a focus parent
-    $mod+Shift+a focus child
 
     $mod+Shift+minus move scratchpad
     $mod+minus scratchpad show
 
-    $mod+Shift+c reload
-    $mod+Shift+r restart
-    $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -b 'Yes, exit sway' 'swaymsg exit'
-
-#    $mod+b
 #    $mod+Shift+b
     $mod+c exec $term -e /usr/bin/cmus
+#    $mod+Shift+c reload
 #    $mod+Shift+d
+#    $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -b 'Yes, exit sway' 'swaymsg exit'
 #    $mod+Shift+f
+#    $mod+Shift+g
 #    $mod+i
 #    $mod+Shift+i
 #    $mod+m
 #    $mod+Shift+m
 #    $mod+Shift+n
-    $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
-    $mod+Shift+o gaps inner current set 0; gaps outer current set 0
+#    $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
+#    $mod+Shift+o gaps inner current set 0; gaps outer current set 0
 #    $mod+Shift+p
+#    $mod+Shift+r restart
 #    $mod+Shift+t
     $mod+u exec /usr/bin/pavucontrol-qt
 #    $mod+Shift+u
@@ -111,20 +107,22 @@ bindsym {
 #    $mod+Shift+x
     $mod+y exec $term -e /usr/bin/pulsemixer
 #    $mod+Shift+y
+#    $mod+z
 #    $mod+Shift+z
-    $mod+odiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    $mod+adiaeresis exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    $mod+aring exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+    $mod+odiaeresis      exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    $mod+adiaeresis      exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    $mod+aring           exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
 
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
 
-    XF86AudioPlay exec cmus-remote --pause
-    XF86AudioPause exec cmus-remote --pause
-    XF86AudioStop exec cmus-remote --stop
-    XF86AudioNext exec cmus-remote --next
-    XF86AudioPrev exec cmus-remote --prev
+    XF86AudioPlay        exec cmus-remote --pause
+    XF86AudioPause       exec cmus-remote --pause
+    XF86AudioStop        exec cmus-remote --stop
+    XF86AudioNext        exec cmus-remote --next
+    XF86AudioPrev        exec cmus-remote --prev
 
     $mod+1 workspace $ws1
     $mod+2 workspace $ws2
@@ -149,55 +147,27 @@ bindsym {
     $mod+Shift+0 move container to workspace $ws10
 
     $mod+r mode "resize"
-    $mod+Shift+g mode "$mode_gaps"
+    $mod+Escape mode $sys
 }
 
 mode "resize" {
         bindsym {
-            h resize shrink width 5 px or 5 ppt
-            j resize grow height 5 px or 5 ppt
-            k resize shrink height 5 px or 5 ppt
-            l resize grow width 5 px or 5 ppt
+            h resize shrink width   5 px
+            j resize grow   height  5 px
+            k resize shrink height  5 px
+            l resize grow   width   5 px
 
             Escape mode "default"
         }
 }
 
-mode "$mode_gaps" {
+mode $sys {
         bindsym {
-            o      mode "$mode_gaps_outer"
-            i      mode "$mode_gaps_inner"
-
-            Escape mode "default"
-        }
-}
-
-mode "$mode_gaps_inner" {
-        bindsym {
-            plus  gaps inner current plus 2
-            minus gaps inner current minus 2
-            0     gaps inner current set 0
-            d mode "default", gaps inner current set $default_gaps_inner
-
-            Shift+plus  gaps inner all plus 2
-            Shift+minus gaps inner all minus 2
-            Shift+0     gaps inner all set 0
-            Shift+d mode "default", gaps inner all set $default_gaps_inner
-
-            Escape mode "default"
-        }
-}
-mode "$mode_gaps_outer" {
-        bindsym {
-            plus  gaps outer current plus 2
-            minus gaps outer current minus 2
-            0     gaps outer current set 0
-            d mode "default", gaps outer current set $default_gaps_outer
-
-            Shift+plus  gaps outer all plus 2
-            Shift+minus gaps outer all minus 2
-            Shift+0     gaps outer all set 0
-            Shift+d mode "default", gaps outer all set $default_gaps_outer
+            e exit;                        mode "default"
+            r reload;                      mode "default"
+            Mod1+r restart;                mode "default"
+            Shift+r exec systemctl reboot; mode "default"
+            p exec systemctl poweroff;     mode "default"
 
             Escape mode "default"
         }
@@ -264,7 +234,7 @@ for_window {
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
     [title="(?i)page info"] floating enable
-    [title="(?i)jitsi meet"] floating enable; resize set 450 295; move absolute position center
+    [title="(?i)jitsi meet"] floating enable sticky enable; resize set 450 295; move position center
 }
 
 assign {
@@ -272,14 +242,12 @@ assign {
 }
 
 exec {
-#    systemctl --user import-environment
-#    systemctl --user start sway-session.target
-#    dbus-update-activation-environment --systemd --all
+    dbus-update-activation-environment --systemd --all
+#     systemctl --user import-environment
+#     systemctl --user start sway-session.target
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
-    pactl upload-sample /usr/share/sounds/freedesktop/stereo/bell.oga x11-bell
-    pactl load-module module-x11-bell sample=x11-bell display=$DISPLAY
 }
 
 #xwayland disable
