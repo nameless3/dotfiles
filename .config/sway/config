@@ -22,16 +22,10 @@ set {
     $inactive-text-color #928374
     $urgent-bg-color     #900000
     $ind-color           #00ff00
-
-    $default_gaps_inner 8
-    $default_gaps_outer 3
-    $mode_gaps gaps: (o)uter, (i)nner
-    $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
-    $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
 }
 
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+gaps inner 8
+gaps outer 3
 
 font pango:Terminus 9
 
@@ -94,8 +88,8 @@ bindsym {
 #    $mod+m
 #    $mod+Shift+m
 #    $mod+Shift+n
-#    $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
-#    $mod+Shift+o gaps inner current set 0; gaps outer current set 0
+#    $mod+o
+#    $mod+Shift+o
 #    $mod+Shift+p
 #    $mod+Shift+r restart
 #    $mod+Shift+t
@@ -152,10 +146,10 @@ bindsym {
 
 mode "resize" {
         bindsym {
-            h resize shrink width   5 px
-            j resize grow   height  5 px
-            k resize shrink height  5 px
-            l resize grow   width   5 px
+            h resize shrink width   15 px
+            j resize grow   height  15 px
+            k resize shrink height  15 px
+            l resize grow   width   15 px
 
             Escape mode "default"
         }
@@ -214,7 +208,6 @@ for_window {
     [app_id="(?i)guvcview"] floating enable
     [class="(?i)keepassxc"] floating enable
     [app_id="(?i)klavaro"] floating enable
-    [app_id="(?i)lxappearance"] floating enable
     [class="(?i)main.tcl"] floating enable
     [app_id="(?i)mpv"] floating enable
     [class="(?i)nm-connection-editor"] floating enable
@@ -237,14 +230,19 @@ for_window {
     [title="(?i)jitsi meet"] floating enable sticky enable; resize set 450 295; move position center
 }
 
+# doesn't seem to work on wayland
 assign {
-    [class="(?i)chromium"] $ws5
+    [app_id="(?i)ranger"] $ws2
+    [app_id="(?i)newsboat"] $ws3
+    [app_id="(?i)htop"] $ws3
+    [app_id="(?i)chromium"] $ws5
+    [app_id="(?i)weechat"] $ws7
 }
 
 exec {
     dbus-update-activation-environment --systemd --all
-#     systemctl --user import-environment
-#     systemctl --user start sway-session.target
+#    systemctl --user import-environment
+#    systemctl --user start sway-session.target
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
