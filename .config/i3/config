@@ -1,6 +1,7 @@
 # vim:fileencoding=utf-8:ft=conf
 
 set $mod Mod4
+set $exec exec --no-startup-id
 set $term alacritty
 set $sys "[e]xit · [r]eload · [R]eboot · [p]oweroff"
 
@@ -22,30 +23,24 @@ set $inactive-text-color #928374
 set $urgent-bg-color     #900000
 set $ind-color           #00ff00
 
-set $default_gaps_inner 8
-set $default_gaps_outer 3
-set $mode_gaps gaps: (o)uter, (i)nner
-#set $mode_gaps_outer outer gaps: +|-|0, Shift++|-|0 (global)
-#set $mode_gaps_inner inner gaps: +|-|0, Shift++|-|0 (global)
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+gaps inner 8
+gaps outer 3
 
 font pango:Terminus 9
 
-floating_modifier $mod
+floating_modifier $mod normal
 
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-bindsym $mod+Return exec $term -e /usr/bin/fish
+bindsym $mod+Return $exec $term -e /usr/bin/fish
 bindsym $mod+q kill
 
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec "rofi -show drun"
-bindsym $mod+Pause exec i3lock --image=/home/$USER/img/bg/gits_city2.png
-bindsym Print exec import -window root ~/img/$(date '+%F-%T').png
-bindsym --release Shift+Print exec import ~/img/$(date '+%F-%T').png
-#bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
+bindsym $mod+d $exec "rofi -show drun"
+bindsym $mod+Pause $exec i3lock --image=/home/$USER/img/bg/hollow_knight/silksong6.png
+bindsym Print $exec import -window root ~/img/$(date '+%F-%T').png
+bindsym --release Shift+Print $exec import ~/img/$(date '+%F-%T').png
+#bindsym Shift+Print $exec gnome-screenshot -i
 
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
@@ -69,7 +64,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+space floating toggle
 
 bindsym $mod+s layout toggle stacking tabbed split
-#bindsym $mod+w layout tabbed
+#bindsym $mod+w
 #bindsym $mod+e layout toggle split
 bindsym $mod+t split toggle
 
@@ -81,7 +76,7 @@ bindsym $mod+minus scratchpad show
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #bindsym $mod+Shift+b
-bindsym $mod+c exec $term -e /usr/bin/cmus
+bindsym $mod+c $exec $term -e /usr/bin/cmus
 #bindsym $mod+Shift+d
 #bindsym $mod+Shift+f
 #bindsym $mod+Shift+g
@@ -90,34 +85,34 @@ bindsym $mod+c exec $term -e /usr/bin/cmus
 #bindsym $mod+m
 #bindsym $mod+Shift+m
 #bindsym $mod+Shift+n
-#bindsym $mod+o gaps inner current set $default_gaps_inner; gaps outer current set $default_gaps_outer
-#bindsym $mod+Shift+o gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+o
+#bindsym $mod+Shift+o
 #bindsym $mod+Shift+p
 #bindsym $mod+Shift+t
-bindsym $mod+u exec /usr/bin/pavucontrol-qt
+bindsym $mod+u $exec /usr/bin/pavucontrol-qt
 #bindsym $mod+Shift+u
-bindsym $mod+v exec /usr/bin/tkpacman
+bindsym $mod+v $exec /usr/bin/tkpacman
 #bindsym $mod+Shift+v
 #bindsym $mod+x
 #bindsym $mod+Shift+x
-bindsym $mod+y exec $term -e /usr/bin/pulsemixer
+bindsym $mod+y $exec $term -e /usr/bin/pulsemixer
 #bindsym $mod+Shift+y
 #bindsym $mod+z
 #bindsym $mod+Shift+z
 
-bindsym $mod+odiaeresis exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+adiaeresis exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod+aring exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+odiaeresis      $exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+adiaeresis      $exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+aring           $exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume $exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume $exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        $exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
-bindsym XF86AudioPause exec --no-startup-id cmus-remote --pause
-bindsym XF86AudioStop exec --no-startup-id cmus-remote --stop
-bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
+bindsym XF86AudioPlay $exec cmus-remote --pause
+bindsym XF86AudioPause $exec cmus-remote --pause
+bindsym XF86AudioStop $exec cmus-remote --stop
+bindsym XF86AudioNext $exec cmus-remote --next
+bindsym XF86AudioPrev $exec cmus-remote --prev
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -144,10 +139,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-           bindsym h resize shrink width 5 px
-           bindsym j resize grow height 5 px
-           bindsym k resize shrink height 5 px
-           bindsym l resize grow width 5 px
+           bindsym h resize shrink width  15 px
+           bindsym j resize grow   height 15 px
+           bindsym k resize shrink height 15 px
+           bindsym l resize grow   width  15 px
 
            bindsym Escape mode "default"
 }
@@ -218,8 +213,7 @@ for_window [title="(?i)jitsi meet"] floating enable sticky enable; resize set 45
 
 assign [class="(?i)chromium"] $ws5
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#exec --no-startup-id /usr/bin/picom &
-exec --no-startup-id /usr/bin/dunst &
-#exec --no-startup-id nm-applet &
-#exec xset s off -dpms
+$exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+$exec /usr/bin/dunst &
+#$exec nm-applet &
+#$exec xset s off -dpms
