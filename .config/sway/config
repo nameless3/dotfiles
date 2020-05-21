@@ -34,7 +34,7 @@ floating_modifier $mod normal
 workspace_auto_back_and_forth yes
 default_border pixel 2
 
-#output * bg ~/img/bg/gits_city2.png fill
+output * bg ~/img/bg/hollow_knight/silksong9.png fill
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/fish
@@ -43,7 +43,7 @@ bindsym {
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
 #    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/gits_city2.png --scaling fill
+    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/hollow_knight/silksong6.png --scaling fill
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
 
@@ -146,10 +146,10 @@ bindsym {
 
 mode "resize" {
         bindsym {
-            h resize shrink width   15 px
-            j resize grow   height  15 px
-            k resize shrink height  15 px
-            l resize grow   width   15 px
+            h resize shrink width  15 px
+            j resize grow   height 15 px
+            k resize shrink height 15 px
+            l resize grow   width  15 px
 
             Escape mode "default"
         }
@@ -192,7 +192,7 @@ bar {
 input * {
     xkb_layout se
     xkb_options caps:swapescape,terminate:ctrl_alt_bksp
-    xkb_numlock enabled
+#    xkb_numlock enabled
     repeat_delay 200
     repeat_rate 60
 }
@@ -213,7 +213,7 @@ for_window {
     [class="(?i)nm-connection-editor"] floating enable
     [class="(?i)pavucontrol"] floating enable
     [class="(?i)pcsxr"] floating enable
-    [class="(?i)retroarch"] floating enable
+    [app_id="(?i)retroarch"] floating enable
     [class="(?i)scummvm"] floating enable
     [app_id="(?i)snes9x"] floating enable
     [app_id="(?i)transmission-gtk"] floating enable
@@ -232,11 +232,7 @@ for_window {
 
 # doesn't seem to work on wayland
 assign {
-    [app_id="(?i)ranger"] $ws2
-    [app_id="(?i)newsboat"] $ws3
-    [app_id="(?i)htop"] $ws3
     [app_id="(?i)chromium"] $ws5
-    [app_id="(?i)weechat"] $ws7
 }
 
 exec {
@@ -245,7 +241,7 @@ exec {
 #    systemctl --user start sway-session.target
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
-    xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+    xrdb -load -all $XDG_CONFIG_HOME/X11/Xresources
 }
 
 #xwayland disable
