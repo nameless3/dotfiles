@@ -18,6 +18,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export LESSHISTFILE=-
+export LIBVA_DRIVER_NAME=radeonsi
 export MAILCAPS="$XDG_CONFIG_HOME"/mailcap
 export MOZ_DBUS_REMOTE=1
 export MOZ_ENABLE_WAYLAND=1
@@ -31,6 +32,8 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | source $MYVIMRC'
 export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+#export XDG_CURRENT_DESKTOP=sway
+#export XDG_SESSION_TYPE=wayland
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XKB_DEFAULT_OPTIONS=caps:swapescape,terminate:ctrl_alt_bksp
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
