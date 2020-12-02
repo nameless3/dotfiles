@@ -33,6 +33,7 @@ floating_modifier $mod normal
 
 workspace_auto_back_and_forth yes
 default_border pixel 2
+default_floating_border pixel 2
 
 output * bg ~/img/bg/hollow_knight/silksong9.png fill
 
@@ -43,10 +44,12 @@ bindsym {
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
 #    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/hollow_knight/silksong6.png --scaling fill
+    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/hollow_knight/silksong6b.png --scaling fill
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
-
+# take image from webcam, press s
+#   mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
+#   ffmpeg -f video4linux2 -i /dev/video0 -vframes 1 out.jpg
     $mod+a focus parent
     $mod+Shift+a focus child
     $mod+g focus mode_toggle
@@ -198,6 +201,7 @@ input * {
 }
 
 for_window {
+    [app_id=".*"] border pixel 2
     [app_id="(?i)dconf-editor"] floating enable
     [class="(?i)desmume"] floating enable
     [app_id="(?i)file-roller"] floating enable
@@ -227,10 +231,10 @@ for_window {
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
     [title="(?i)page info"] floating enable
-    [title="(?i)jitsi meet"] floating enable sticky enable; resize set 450 295; move position center
+    [title="(?i)jitsi meet"] floating enable, sticky enable, resize set 450 295, move position center
 }
 
-# doesn't seem to work on wayland
+# doesn't seem to work on wayland yet
 assign {
     [app_id="(?i)chromium"] $ws5
 }
