@@ -28,16 +28,17 @@ gaps outer 3
 
 font pango:Terminus 9
 
-floating_modifier $mod normal
+floating_modifier $mod
 
 workspace_auto_back_and_forth yes
 default_border pixel 2
+default_floating_border pixel 2
 
 bindsym $mod+Return $exec $term -e /usr/bin/fish
 bindsym $mod+q kill
 
 bindsym $mod+d $exec "rofi -show drun"
-bindsym $mod+Pause $exec i3lock --image=/home/$USER/img/bg/hollow_knight/silksong6.png
+bindsym $mod+Pause $exec i3lock --image=/home/$USER/img/bg/hollow_knight/silksong6b.png
 bindsym Print $exec import -window root ~/img/$(date '+%F-%T').png
 bindsym --release Shift+Print $exec import ~/img/$(date '+%F-%T').png
 #bindsym Shift+Print $exec gnome-screenshot -i
@@ -71,9 +72,9 @@ bindsym $mod+t split toggle
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-#bindsym $mod+Shift+c reload
-#bindsym $mod+Shift+r restart
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #bindsym $mod+Shift+b
 bindsym $mod+c $exec $term -e /usr/bin/cmus
@@ -137,6 +138,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+r mode "resize"
+bindsym $mod+Escape mode $sys
 
 mode "resize" {
            bindsym h resize shrink width  15 px
@@ -177,8 +179,8 @@ bar {
         inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
         urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
     }
-}
 
+for_window [class=".*"] border pixel 2
 for_window [class="(?i)dconf-editor"] floating enable
 for_window [class="(?i)desmume"] floating enable
 for_window [class="(?i)file-roller"] floating enable
