@@ -232,6 +232,7 @@ for_window {
     [window_type="menu"] floating enable
     [title="(?i)page info"] floating enable
     [title="(?i)jitsi meet"] floating enable, sticky enable, resize set 450 295, move position center
+    [title="Firefox — Sharing Indicator"] floating enable, no_focus
 }
 
 # doesn't seem to work on wayland yet
