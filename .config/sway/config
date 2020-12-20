@@ -232,7 +232,7 @@ for_window {
     [window_type="menu"] floating enable
     [title="(?i)page info"] floating enable
     [title="(?i)jitsi meet"] floating enable, sticky enable, resize set 450 295, move position center
-    [title="Firefox — Sharing Indicator"] floating enable, no_focus
+    [title="(?i)firefox — sharing indicator"] floating enable, no_focus
 }
 
 # doesn't seem to work on wayland yet
@@ -241,9 +241,9 @@ assign {
 }
 
 exec {
-    dbus-update-activation-environment --systemd --all
-#    systemctl --user import-environment
-#    systemctl --user start sway-session.target
+#    dbus-update-activation-environment --systemd --all
+    "systemctl --user import-environment; systemctl --user start sway-session.target"
+    systemd-cat --identifier=sway sway
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -load -all $XDG_CONFIG_HOME/X11/Xresources
