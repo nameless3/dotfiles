@@ -231,19 +231,19 @@ for_window {
     [window_type="dialog"] floating enable
     [window_type="menu"] floating enable
     [title="(?i)page info"] floating enable
-    [title="(?i)jitsi meet"] floating enable, sticky enable, resize set 450 295, move position center
-    [title="(?i)firefox — sharing indicator"] floating enable, no_focus
+    [title="(?i)jitsi meet"] floating enable, sticky enable, resize set 460 300, move position 2075px 750px
+    [title="(?i)firefox — sharing indicator"] floating enable, move position 1200px 1px
 }
 
-# doesn't seem to work on wayland yet
 assign {
     [app_id="(?i)chromium"] $ws5
+    [class="(?i)chromium"] $ws5
 }
 
 exec {
 #    dbus-update-activation-environment --systemd --all
     "systemctl --user import-environment; systemctl --user start sway-session.target"
-    systemd-cat --identifier=sway sway
+#    systemd-cat --identifier=sway sway
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -load -all $XDG_CONFIG_HOME/X11/Xresources
