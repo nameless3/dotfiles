@@ -35,7 +35,8 @@ workspace_auto_back_and_forth yes
 default_border pixel 2
 default_floating_border pixel 2
 
-output * bg ~/img/bg/hollow_knight/silksong9.png fill
+output * bg ~/img/bg/ubuntu-vivid.jpg fill
+output HDMI-A-1 res 1920x1080@120Hz
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/fish
@@ -44,7 +45,7 @@ bindsym {
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
 #    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/hollow_knight/silksong6b.png --scaling fill
+    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/ubuntu-vivid.jpg --scaling fill
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
 # take image from webcam, press s
@@ -247,6 +248,8 @@ exec {
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     /usr/bin/mako &
     xrdb -load -all $XDG_CONFIG_HOME/X11/Xresources
+    "pactl load-module module-remap-sink sink_name=reverse-stereo master=alsa_output.pci-0000_0b_00.3.analog-stereo channels=2 master_channel_map=front-right,front-left channel_map=front-left,front-right remix=no"
+    "pactl set-default-sink reverse-stereo"
 }
 
 #xwayland disable
