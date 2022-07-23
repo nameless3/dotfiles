@@ -1,13 +1,14 @@
 configuration {
 	modi: "drun,window";
-	width: 100;
-	lines: 6;
-	columns: 10;
-	font: "xos4 Terminus 8";
+	font: "Terminus 9";
 	bw: 2;
 	location: 1;
-/*	padding: 5;*/
 	yoffset: -2;
+}
+	@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+    listview { lines: 10; columns: 7; }
+    window { width: 1300; }
+/*	padding: 5;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
@@ -50,7 +51,6 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "/usr/share/rofi/themes/gruvbox-dark.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -136,4 +136,3 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
-}
