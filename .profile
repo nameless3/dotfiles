@@ -21,7 +21,7 @@ export LESSHISTFILE=-
 export LIBVA_DRIVER_NAME=radeonsi
 export MAILCAPS="$XDG_CONFIG_HOME"/mailcap
 export MOZ_DBUS_REMOTE=1
-export MOZ_ENABLE_WAYLAND=1
+#export MOZ_ENABLE_WAYLAND=1
 #export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -32,7 +32,7 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | source $MYVIMRC'
 export WEECHAT_HOME="$XDG_CONFIG_HOME"/weechat
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-#export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
 #export XDG_SESSION_TYPE=wayland
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XKB_DEFAULT_OPTIONS=caps:swapescape,terminate:ctrl_alt_bksp
