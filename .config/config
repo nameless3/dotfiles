@@ -1,0 +1,126 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": ["sway/workspaces", "custom/pacman", "sway/mode"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["network", "disk", "disk#home", "memory", "cpu", "temperature", "temperature#gpu", "temperature#nvme", "upower", "pulseaudio", "tray"],
+
+    "sway/workspaces": {
+         "disable-scroll": false,
+         "disable-scroll-wraparound": true,
+         "enable-bar-scroll": true,
+         "all-outputs": false,
+         "format": "{name}",
+    //     "format-icons": {
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+     },
+
+    "custom/pacman": {
+        "format": "  <span color=\"darkgray\">{}</span>",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        //"on-click": "kitty -e 'yay'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8,
+        "max-length": 10,
+        "min-length": 3
+    },
+
+    "custom/weather": {
+        "format": "  {}",
+        "exec": "curl 'https://wttr.in/?format=1'",
+        "interval": 3600
+    },
+
+    "disk": {
+        "interval": 300,
+        "format": " <span color=\"darkgray\">{used} / {total}</span>",
+        "path": "/"
+    },
+
+    "disk#home": {
+        "interval": 300,
+        "format": " <span color=\"darkgray\">{used} / {total}</span>",
+        "path": "/home"
+    },
+
+    "cpu": {
+        "format": " <span color=\"darkgray\">{usage}%</span>",
+    },
+
+    "memory": {
+        "format": " <span color=\"darkgray\">{used:0.1f}GiB</span>"
+    },
+
+    "temperature": {
+        "hwmon-path-abs": "/sys/devices/platform/asus-wmi-sensors/hwmon/hwmon1",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°",
+        "format": "{icon} {temperatureC}°",
+        "format-icons": ["", "", ""]
+    },
+
+    "temperature#gpu": {
+        "hwmon-path": "/sys/class/drm/card0/device/hwmon/hwmon1/temp1_input",
+        "format": "GPU <span color=\"darkgray\">{temperatureC}°</span>",
+        "tooltip": false
+    },
+
+    "temperature#nvme": {
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "format": "NVMe <span color=\"darkgray\">{temperatureC}°</span>",
+        "tooltip": false
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format-ethernet": "{ifname} via {gwaddr}    {bandwidthUpBits}  {bandwidthDownBits}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "upower": {
+        "format": "{percentage}",
+        "icon-size": 16,
+        "hide-if-empty": true,
+        "tooltip": true,
+        "tooltip-spacing": 10
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} <span color=\"darkgray\">{volume}%</span> {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "phone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol-qt"
+    },
+
+    "clock": {
+        "format": "  {:%a, %e %b   %H:%M}",
+        "calendar-weeks-pos": "left",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><big>{calendar}</big></tt>",
+    },
+
+    "tray": {
+        "icon-size": 11,
+        "spacing": 10
+    },
+}
