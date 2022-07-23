@@ -1,17 +1,15 @@
 "set rtp^=/usr/share/vim/vimfiles/
 
-let g:airline_theme='gruvbox'
+"let mapleader="\<SPACE>"
+let mapleader=","
+
+let g:airline_theme='gruvbox_material'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-"autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
-let NERDTreeNaturalSort=1
-map <C-n> :NERDTreeToggle<CR>
+let g:table_mode_header_fillchar='='
 
-"let mapleader="\<SPACE>"
-colorscheme gruvbox
+colorscheme gruvbox-material
 set number
 set relativenumber
 set cursorline
@@ -54,6 +52,7 @@ set mouse=a
 map <F5> :bp<CR>
 map <F6> :bn<CR>
 map Q gq
+map Y y$
 
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-l> <C-x><C-l>
@@ -70,6 +69,7 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 nnoremap gj j
 nnoremap gk k
+nnoremap S :%s//g<Left><Left>
 
 " Nuke evil whitespace from orbit (from eli-schwartz)
 function StripTrailingWhitespace()
