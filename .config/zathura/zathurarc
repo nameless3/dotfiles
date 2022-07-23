@@ -1,4 +1,4 @@
-set font "IBM Plex Mono 10"
+set font "Ubuntu 10"
 set statusbar-bg "#282828"
 set statusbar-fg "#928374"
 set statusbar-home-tilde
