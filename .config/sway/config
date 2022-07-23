@@ -2,8 +2,11 @@
 
 set {
     $mod Mod4
-    $term alacritty
+    $term /usr/bin/foot
     $sys "[e]xit · [r]eload · [R]eboot · [p]oweroff"
+
+    $bg ~/img/bg/ff7-midgar-1.jpg fill
+    $bg-lock ~/img/bg/ff7-midgar-1.jpg --scaling fill
 
     $ws1 "1:I"
     $ws2 "2:II"
@@ -35,8 +38,20 @@ workspace_auto_back_and_forth yes
 default_border pixel 2
 default_floating_border pixel 2
 
-output * bg ~/img/bg/ubuntu-vivid.jpg fill
-output HDMI-A-1 res 1920x1080@120Hz
+input * {
+    xkb_layout se
+    xkb_options caps:swapescape,terminate:ctrl_alt_bksp
+#    xkb_numlock enabled
+    repeat_delay 200
+    repeat_rate 60
+}
+
+output {
+    HDMI-A-1 bg $bg
+    HDMI-A-1 res 2560x1440@119.998Hz pos 0 0
+    HDMI-A-2 bg $bg
+    HDMI-A-2 pos 2560 0
+}
 
 bindsym {
     $mod+Return exec $term -e /usr/bin/fish
@@ -44,13 +59,18 @@ bindsym {
 
     $mod+d exec "/usr/bin/rofi -show drun"
     $mod+Shift+d exec dmenu_path | dmenu -sf '#D5C4A1' -sb '#3c3836' | xargs swaymsg exec
-#    $mod+b exec alacritty --title=launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-    $mod+Pause exec /usr/bin/swaylock -i ~/img/bg/ubuntu-vivid.jpg --scaling fill
+    $mod+m exec alacritty -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+#    $mod+m exec $term --class "fzf-menu" --geometry 640x480 -e ~/.share/bin/fzf-menu
+
+    $mod+Pause exec /usr/bin/swaylock -i $bg-lock
+
     Print exec /usr/bin/grim ~/img/$(date +"%F-%T").png
     --release Shift+Print exec /usr/bin/grim -g "$(slurp)" ~/img/$(date "+%F-%T").png
-# take image from webcam, press s
-#   mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
-#   ffmpeg -f video4linux2 -i /dev/video0 -vframes 1 out.jpg
+
+#    take image from webcam, press s
+#    mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
+#    ffmpeg -f video4linux2 -i /dev/video0 -vframes 1 out.jpg
+
     $mod+a focus parent
     $mod+Shift+a focus child
     $mod+g focus mode_toggle
@@ -179,26 +199,19 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $ind-color  $urgent-bg-color
 
 bar {
-    status_command /usr/bin/i3status
-    position top
-    strip_workspace_numbers yes
-    colors {
-        background          $bg-color
-        statusline          #c5c8c6
-        separator           #8e88b7
-        #                   border              background          text
-        focused_workspace   $bg-color           $bg-color           $text-color
-        inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-        urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
-    }
-}
-
-input * {
-    xkb_layout se
-    xkb_options caps:swapescape,terminate:ctrl_alt_bksp
-#    xkb_numlock enabled
-    repeat_delay 200
-    repeat_rate 60
+#    status_command /usr/bin/i3status
+#    position top
+#    strip_workspace_numbers yes
+#    colors {
+#        background          $bg-color
+#        statusline          #c5c8c6
+#        separator           #8e88b7
+#        #                   border              background          text
+#        focused_workspace   $bg-color           $bg-color           $text-color
+#        inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
+#        urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
+#    }
+    swaybar_command /usr/bin/waybar
 }
 
 for_window {
@@ -224,6 +237,7 @@ for_window {
     [app_id="(?i)transmission-gtk"] floating enable
     [app_id="(?i)virt-manager"] floating enable
     [app_id="^launcher$"] floating enable, border pixel
+    [class="^fzf-menu$"] floating enable
 
     [window_role="pop-up"] floating enable
     [window_role="task_dialog"] floating enable
@@ -251,6 +265,7 @@ exec {
     "pactl load-module module-remap-sink sink_name=reverse-stereo master=alsa_output.pci-0000_0b_00.3.analog-stereo channels=2 master_channel_map=front-right,front-left channel_map=front-left,front-right remix=no"
     "pactl set-default-sink reverse-stereo"
 }
+
 
 #xwayland disable
 include @sysconfdir@/sway/config.d/*
